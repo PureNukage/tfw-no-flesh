@@ -11,3 +11,5 @@ if point_distance(x,y,x_goto,y_goto) < 8 {
 }
 		
 mp_potential_step(x_goto,y_goto,movespeed,false)
+
+depth = -y

@@ -13,9 +13,11 @@ switch(mode)
 		
 		
 	break;
-	case 2:
+	case 2:		//	Object Variables
+		
 	
-	break;		//	Object Variables
+		
+	break;		
 
 
 }
