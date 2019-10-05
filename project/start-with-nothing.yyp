@@ -199,6 +199,14 @@
             }
         },
         {
+            "Key": "77cd1acf-3634-443f-a626-52daaab377b3",
+            "Value": {
+                "id": "84146b1b-1b03-4dd6-ac92-d2269c86bb0c",
+                "resourcePath": "objects\\roomController\\roomController.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "79378e1d-cdc5-48d9-a433-cea536451a05",
             "Value": {
                 "id": "4aeb5671-a1fa-45ff-9dae-2585287b8859",
@@ -220,6 +228,14 @@
                 "id": "8cd5041e-0a5d-40e0-b5ab-e0e84e8455fe",
                 "resourcePath": "sprites\\s_house\\s_house.yy",
                 "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "86525cad-804a-4238-a646-71181b491d77",
+            "Value": {
+                "id": "83a654e0-fb9f-49db-8ab6-10d4ebb53fff",
+                "resourcePath": "objects\\debug\\debug.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -292,6 +308,14 @@
                 "id": "aa346816-b173-45a6-8d6b-a59011848485",
                 "resourcePath": "views\\b8bfd93e-8e99-49b3-a4d7-17d65fa4987d.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "c0c63106-09e1-495c-9528-37b6851aec02",
+            "Value": {
+                "id": "65d699b0-a973-4a81-8ddd-4227ed05aa6f",
+                "resourcePath": "scripts\\grid_collision_create\\grid_collision_create.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -368,7 +392,8 @@
         }
     ],
     "script_order": [
-        "75e29765-c649-439a-bec8-2ab6f0c5bd5c"
+        "75e29765-c649-439a-bec8-2ab6f0c5bd5c",
+        "c0c63106-09e1-495c-9528-37b6851aec02"
     ],
     "tutorial": ""
 }
