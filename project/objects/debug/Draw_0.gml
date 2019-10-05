@@ -10,7 +10,7 @@ switch(mode)
 				if ds_grid_get(roomController.grid_collision,_x,_y) == grid_layer {
 					draw_set_alpha(.6)
 					draw_set_color(c_green)
-					draw_rectangle(_x*16,_y*16,(_x*16)+16,(_y*16)+16,false)
+					draw_rectangle(_x*32,_y*32,(_x*32)+32,(_y*32)+32,false)
 					draw_set_color(c_black)
 					draw_set_alpha(1)					
 					//draw_text(_x*16,_y*16,roomController.grid_collision[# _x,_y])

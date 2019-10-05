@@ -7,6 +7,9 @@ if timer >= 60 {
 	var kid1 = instance_create_layer(x,y,"Instances",kid)
 	var kid2 = instance_create_layer(x,y,"Instances",kid)
 	kid0.controller = kid_controller
+	kid0.line_pos = 0
 	kid1.controller = kid_controller
+	kid1.line_pos = 1
 	kid2.controller = kid_controller
+	kid2.line_pos = 2
 }
