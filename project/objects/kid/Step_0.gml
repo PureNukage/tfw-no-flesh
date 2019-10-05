@@ -1,4 +1,4 @@
-if controller.pos > ds_list_size(controller.line_list)*gap {
+if controller.pos-(line_pos*gap) > 1 {
 	pos = controller.pos-(line_pos*gap)
 	x_goto = path_get_point_x(controller.path,pos)
 	y_goto = path_get_point_y(controller.path,pos)
