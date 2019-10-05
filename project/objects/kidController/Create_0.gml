@@ -10,4 +10,5 @@ movespeed = 3
 scr_mp_grid_define_path(x,y,goal.x+90,goal.y+198,path,roomController.grid_sidewalk,false)
 x_goto = path_get_point_x(path,pos)
 y_goto = path_get_point_y(path,pos)
-pos = 1
+
+debug_object_variable
