@@ -19,9 +19,14 @@ for(var _x=0;_x<ds_grid_width(grid_collision);_x++) {
 				case 0: tilemap = "sidewalk" break;
 				case 1: tilemap = "road" break;
 			}
-			var tilemap_id = layer_get_id(tilemap)
-			if tilemap_get_at_pixel(tilemap_id,_x,_y) != -1 {
-				ds_grid_add(grid_collision,_x,_y,i)
+			var lay_id = layer_get_id(tilemap)
+			var tilemap_id = layer_tilemap_get_id(lay_id)
+			show_debug_message("_x: "+string(_x))
+			show_debug_message("_y: "+string(_y))
+			if (tilemap_get_at_pixel(tilemap_id,_x*16,_y*16) & tile_index_mask) != 0 {
+				ds_grid_set(grid_collision,_x,_y,i)
+				show_debug_message("tilemap added: "+tilemap+" as: "+string(i))
+				i = 2
 			}
 		}
 		
