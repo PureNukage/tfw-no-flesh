@@ -8,6 +8,8 @@ if fleshPercentage > 100 {
 	fleshCurrent = 0 
 }
 
+parentsTotal = (parent_percentage[flesh]/100)*max_units[flesh]
+
 if timer > spawn_time and units < max_units[flesh] {
 	var spawnX = irandom_range(128,room_width-128)
 	var spawnY = irandom_range(128,room_height-128)
@@ -18,13 +20,16 @@ if timer > spawn_time and units < max_units[flesh] {
 	var kid1 = instance_create_layer(spawnX,spawnY,"Instances",kid)
 	var kid2 = instance_create_layer(spawnX,spawnY,"Instances",kid)
 	kid_controller.spawner = id
+	if parents < parentsTotal {
+		//var _parent = instance_create_layer(spawnX,spawnY,"Instances",parent)	
+	}
 	kid0.controller = kid_controller
 	kid0.line_pos = 0
-	kid_controller.line_list[| 0 ] = kid0
+	kid_controller.line_list[| 0] = kid0
 	kid1.controller = kid_controller
 	kid1.line_pos = 1
-	kid_controller.line_list[| 1 ] = kid1
+	kid_controller.line_list[| 1] = kid1
 	kid2.controller = kid_controller
 	kid2.line_pos = 2
-	kid_controller.line_list[| 2 ] = kid2
+	kid_controller.line_list[| 2] = kid2
 }	
