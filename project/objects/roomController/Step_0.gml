@@ -1,5 +1,12 @@
 timer++
 
+switch(fleshLevel)
+{
+	case 0:
+		
+	break;
+}
+
 if timer > spawn_time and units < max_units {
 	var spawnX = irandom_range(128,room_width-128)
 	var spawnY = irandom_range(128,room_height-128)

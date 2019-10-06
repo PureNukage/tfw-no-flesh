@@ -19,6 +19,7 @@ repeat abs(vspd) {
 }
 
 if instance_place(x+hspd,y,player) {
+	roomController.fleshCurrent++
 	instance_destroy()	
 }
 
