@@ -1,13 +1,14 @@
 timer++
 
-switch(fleshLevel)
-{
-	case 0:
-		
-	break;
+fleshPercentage = (fleshCurrent/fleshRequired[flesh])*100 
+
+
+if fleshPercentage > 100 {
+	flesh++
+	fleshCurrent = 0 
 }
 
-if timer > spawn_time and units < max_units {
+if timer > spawn_time and units < max_units[flesh] {
 	var spawnX = irandom_range(128,room_width-128)
 	var spawnY = irandom_range(128,room_height-128)
 	timer = 0

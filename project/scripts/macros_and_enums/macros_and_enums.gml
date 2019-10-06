@@ -8,3 +8,12 @@ enum states {
 	
 	run = 6
 }
+
+enum flesh {
+	left_arm,
+	right_arm,
+	left_leg,
+	right_leg,
+	chest,
+	head
+}
