@@ -15,5 +15,6 @@ states = states.normal
 line_of_sight = collision_line(x,y,player.x,player.y,block,true,false)
 
 timer = 0
+search_timer = 0
 
 debug_object_variable

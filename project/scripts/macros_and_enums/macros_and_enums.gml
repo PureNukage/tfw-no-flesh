@@ -6,7 +6,8 @@ enum states {
 	normal,
 	spook,
 	
-	run = 6
+	run = 6,
+	look = 7
 }
 
 enum flesh {
