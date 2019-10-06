@@ -14,5 +14,7 @@ aura_size = 64
 aggro_list = ds_list_create()
 lookout_list = ds_list_create()
 
+color = 0
+
 timer = 0
 states = states.normal

@@ -9,7 +9,6 @@ switch(states)
 	if playerInput.spook {
 		states = states.spook
 		aura_size = 256
-		aura = 1
 	}
 	
 	hspd = (playerInput.right - playerInput.left)*movespeed
@@ -63,6 +62,49 @@ if ds_list_size(aggro_list) > 0 {
 	aura_size = 64+(32*ds_list_size(aggro_list))
 } else {
 	
+}
+
+switch(aura)
+{
+	case 0: 
+		if ds_list_size(aggro_list) == 0 and ds_list_size(lookout_list) == 0 {
+			color = c_white 
+			if aura_size > 64 aura_size--
+		} else {
+			if ds_list_size(aggro_list) > 0 {
+				aura = 2	
+			} else {
+				if ds_list_size(lookout_list) > 0 {
+					aura = 1	
+				}
+			}
+		}
+	break;
+	case 1: 
+		if ds_list_size(aggro_list) == 0 and ds_list_size(lookout_list) > 0 {
+			color = c_yellow
+			aura_size = 128
+		} else {
+			if ds_list_size(aggro_list) > 0 {
+				aura = 2	
+			} else {
+				if ds_list_size(lookout_list) == 0 {
+					aura = 0	
+				}
+			}
+		}
+		
+		
+	break;
+	case 2: 
+		if ds_list_size(aggro_list) > 0 {
+			color = c_red 
+		} else {
+			if ds_list_size(lookout_list) > 0 {
+				aura = 1	
+			} else aura = 0
+		}
+	break;
 }
 
 

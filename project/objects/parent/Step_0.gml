@@ -6,11 +6,10 @@ switch(states)
 		line_of_sight = !collision_line(x,y,player.x,player.y,block,true,false)
 		aura_collide = collision_ellipse(player.x-player.aura_size,player.y-(player.aura_size/2),player.x+player.aura_size,player.y+(player.aura_size/2),id,true,false) 
 		
-		if aura_collide and player.aura >= 1 and line_of_sight {
+		if aura_collide and player.states == states.spook and line_of_sight {
 			ds_list_delete(controller.line_list,ds_list_find_index(controller.line_list,id))
 			states = states.run
 			ds_list_add(player.aggro_list,id)
-			player.aura = 2
 			movespeed = 4
 			goalX = player.x
 			goalY = player.y
@@ -48,25 +47,6 @@ switch(states)
 	
 		// parent doesnt get spooked unless I add an ability that allows the player to do just that
 	
-		//if controller.pos-(line_pos*gap) > 1 {
-		//	pos = controller.pos-(line_pos*gap)
-		//	x_goto = path_get_point_x(controller.path,pos)
-		//	y_goto = path_get_point_y(controller.path,pos)
-
-		//	if point_distance(x,y,x_goto,y_goto) < 8 {
-		//		if ++pos == path_get_number(controller.path) {	
-		//			//scr_mp_grid_define_path(x,y,goalX,goalY+198,controller.path,roomController.grid_sidewalk,false)
-		//			x_goto = path_get_point_x(controller.path,pos)
-		//			y_goto = path_get_point_y(controller.path,pos)
-		//		} else {
-		//			x_goto = path_get_point_x(controller.path,pos)
-		//			y_goto = path_get_point_y(controller.path,pos)
-		//		}
-		//	}
-		
-		//	mp_potential_step(x_goto,y_goto,movespeed,false)
-		//}
-	
 	
 	break;
 	#endregion
@@ -81,12 +61,10 @@ switch(states)
 				//	Make sure we're in the players aggro list
 				if ds_list_find_index(player.aggro_list,id) == -1 {
 					ds_list_add(player.aggro_list,id)	
-					player.aura = 2
 				}
 				//	Done looking for player, remove ourselves from the players lookout list
 				if ds_list_find_index(player.lookout_list,id) != -1 {
 					ds_list_delete(player.lookout_list,ds_list_find_index(player.lookout_list,id))
-					if ds_list_size(player.lookout_list) == 0 player.aura = 0
 				}
 				goalX = player.x
 				goalY = player.y
@@ -98,12 +76,10 @@ switch(states)
 				//	Lost vision, remove ourselves from the players aggro list
 				if ds_list_find_index(player.aggro_list,id) != -1 {
 					ds_list_delete(player.aggro_list,ds_list_find_index(player.aggro_list,id))
-					if ds_list_size(player.aggro_list) == 0 player.aura = 1
 				}
 				//	Make sure we're in the players lookout list
 				if ds_list_find_index(player.lookout_list,id) == -1 {
 					ds_list_add(player.lookout_list,id)	
-					//player.aura = 2
 				}
 				x_goto = path_get_point_x(path,pos)
 				y_goto = path_get_point_y(path,pos)
@@ -149,7 +125,6 @@ switch(states)
 				//	Done looking for player, remove ourselves from the players lookout list
 				if ds_list_find_index(player.lookout_list,id) != -1 {
 					ds_list_delete(player.lookout_list,ds_list_find_index(player.lookout_list,id))
-					if ds_list_size(player.lookout_list) == 0 player.aura = 0
 				}	
 				
 				//Join my kids again

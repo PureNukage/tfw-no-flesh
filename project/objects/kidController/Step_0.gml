@@ -67,7 +67,12 @@ switch(states)
 				
 			}
 			
-			for(var i=0;i<ds_list_size(line_list);i++) {
+			var loop_size
+			if parent_do_i_have_one == true {
+				loop_size = ds_list_size(line_list)-1	
+			} else loop_size = ds_list_size(line_list)
+			
+			for(var i=0;i<loop_size;i++) {
 				line_list[| i].states = states.run
 				line_list[| i].movespeed = 7
 			}
