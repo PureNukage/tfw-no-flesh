@@ -10,4 +10,6 @@ states = states.normal
 
 timer = 0
 
+parent_do_i_have_one = -1
+
 debug_object_variable

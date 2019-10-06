@@ -1,14 +1,14 @@
 {
-    "id": "b0777fc3-aa69-4ae5-b325-b90f7f22d9ef",
+    "id": "35977b8a-60da-444d-8859-1261e696525a",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "house",
+    "name": "trashcan",
     "eventList": [
         
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": null,
-    "parentObjectId": "a8aa000b-f7cb-454d-9b3c-9da415cb7209",
+    "parentObjectId": "00000000-0000-0000-0000-000000000000",
     "persistent": false,
     "physicsAngularDamping": 0.1,
     "physicsDensity": 0.5,
@@ -24,6 +24,6 @@
     "physicsStartAwake": true,
     "properties": null,
     "solid": false,
-    "spriteId": "85aca2c7-9ade-4864-baff-7e87d31b16c0",
+    "spriteId": "1af79223-501d-4c4e-8d99-f161dc4bc3b3",
     "visible": true
 }

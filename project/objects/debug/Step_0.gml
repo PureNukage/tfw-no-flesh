@@ -14,6 +14,8 @@ if (new_object > -1 and new_object < ds_list_size(object_list)) {
 	object_variable_array = variable_instance_get_names(object)
 }
 
+roomController.flesh += keyboard_check_pressed(vk_pageup) - keyboard_check_pressed(vk_pagedown)
+
 if mode >= 3 {
 	mode = 0
 }	
