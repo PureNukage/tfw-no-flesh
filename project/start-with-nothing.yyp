@@ -63,6 +63,14 @@
             }
         },
         {
+            "Key": "1af79223-501d-4c4e-8d99-f161dc4bc3b3",
+            "Value": {
+                "id": "bd78f28c-4106-44cc-9829-883750fef689",
+                "resourcePath": "sprites\\s_trashcan\\s_trashcan.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "1e38711c-f5ae-4d55-a7f3-858e36f48fa2",
             "Value": {
                 "id": "242bf175-5fe2-45b8-9a74-e726bf911700",
@@ -116,6 +124,14 @@
                 "id": "cf472b28-e9e3-4b83-8a13-26deda624b15",
                 "resourcePath": "scripts\\kid_candydrop\\kid_candydrop.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "35977b8a-60da-444d-8859-1261e696525a",
+            "Value": {
+                "id": "9c462a5d-5dae-413a-a391-8af11f0928dd",
+                "resourcePath": "objects\\trashcan\\trashcan.yy",
+                "resourceType": "GMObject"
             }
         },
         {

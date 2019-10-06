@@ -11,6 +11,7 @@ if fleshPercentage > 100 {
 parentsTotal = (parent_percentage[flesh]/100)*max_units[flesh]
 
 if timer > spawn_time and units < max_units[flesh] {
+
 	var spawnX = irandom_range(128,room_width-128)
 	var spawnY = irandom_range(128,room_height-128)
 	timer = 0
