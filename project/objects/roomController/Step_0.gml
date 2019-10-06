@@ -11,9 +11,52 @@ if fleshPercentage > 100 {
 parentsTotal = (parent_percentage[flesh]/100)*max_units[flesh]
 
 if timer > spawn_time and units < max_units[flesh] {
-
-	var spawnX = irandom_range(128,room_width-128)
-	var spawnY = irandom_range(128,room_height-128)
+			var _whichCorner = irandom_range(0,3)
+			var _5050 = irandom_range(0,1)
+			var spawnX = 0
+			var spawnY = 0
+			
+			//Choose which corner this squad will spawn in 
+			switch(_whichCorner) 
+			{
+				case 0:											//	Bottom Right
+					if _5050 == 0 {
+						spawnX = room_width-64
+						spawnY = irandom_range(y,room_height-64)
+					} else {
+						spawnX = irandom_range(x,room_width-64)	
+						spawnY = room_height-64
+					}
+				break;
+			  	case 1:											//	Top Right
+					if _5050 == 0 {
+						spawnX = room_width-64
+						spawnY = irandom_range(y,0)
+					} else {
+						spawnX = irandom_range(x,room_width-64)
+						spawnY = 64
+					}	
+				break;
+			  	case 2:											//	Bottom Left
+					if _5050 == 0 {
+						spawnX = 64
+						spawnY = irandom_range(y,room_height-64)
+					} else {
+						spawnX = irandom_range(0,x)
+						spawnY = room_height-64
+					}
+				break;
+			  	case 3:											//	Top Left
+					if _5050 == 0 {
+						spawnX = 64
+						spawnY = irandom_range(0,y)
+					} else {
+						spawnX = irandom_range(0,x)
+						spawnY = room_height-64
+					}
+				break;
+			}
+				
 	timer = 0
 	units++
 	var kid_controller = instance_create_layer(spawnX,spawnY,"Instances",kidController)
