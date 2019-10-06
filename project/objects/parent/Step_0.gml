@@ -83,6 +83,11 @@ switch(states)
 					ds_list_add(player.aggro_list,id)	
 					player.aura = 2
 				}
+				//	Done looking for player, remove ourselves from the players lookout list
+				if ds_list_find_index(player.lookout_list,id) != -1 {
+					ds_list_delete(player.lookout_list,ds_list_find_index(player.lookout_list,id))
+					if ds_list_size(player.lookout_list) == 0 player.aura = 0
+				}
 				goalX = player.x
 				goalY = player.y
 				pos = 1
@@ -94,6 +99,11 @@ switch(states)
 				if ds_list_find_index(player.aggro_list,id) != -1 {
 					ds_list_delete(player.aggro_list,ds_list_find_index(player.aggro_list,id))
 					if ds_list_size(player.aggro_list) == 0 player.aura = 1
+				}
+				//	Make sure we're in the players lookout list
+				if ds_list_find_index(player.lookout_list,id) == -1 {
+					ds_list_add(player.lookout_list,id)	
+					//player.aura = 2
 				}
 				x_goto = path_get_point_x(path,pos)
 				y_goto = path_get_point_y(path,pos)
@@ -128,7 +138,7 @@ switch(states)
 				scr_mp_grid_define_path(x,y,goalX,goalY,path,roomController.grid_sidewalk,true)
 				pos = 1
 				x_goto = path_get_point_x(path,pos)
-				y_goto = path_get_point_y(path,pos)	
+				y_goto = path_get_point_y(path,pos)
 			}
 			
 			//Exit Search Pattern
@@ -136,6 +146,11 @@ switch(states)
 				search_timer = 0
 				states = states.normal	
 				movespeed = 3
+				//	Done looking for player, remove ourselves from the players lookout list
+				if ds_list_find_index(player.lookout_list,id) != -1 {
+					ds_list_delete(player.lookout_list,ds_list_find_index(player.lookout_list,id))
+					if ds_list_size(player.lookout_list) == 0 player.aura = 0
+				}	
 				
 				//Join my kids again
 				controller.line_list[| ds_list_size(controller.line_list)] = id
