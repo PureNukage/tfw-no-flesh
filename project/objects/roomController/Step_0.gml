@@ -20,9 +20,6 @@ if timer > spawn_time and units < max_units[flesh] {
 	var kid1 = instance_create_layer(spawnX,spawnY,"Instances",kid)
 	var kid2 = instance_create_layer(spawnX,spawnY,"Instances",kid)
 	kid_controller.spawner = id
-	if parents < parentsTotal {
-		//var _parent = instance_create_layer(spawnX,spawnY,"Instances",parent)	
-	}
 	kid0.controller = kid_controller
 	kid0.line_pos = 0
 	kid_controller.line_list[| 0] = kid0
@@ -32,4 +29,10 @@ if timer > spawn_time and units < max_units[flesh] {
 	kid2.controller = kid_controller
 	kid2.line_pos = 2
 	kid_controller.line_list[| 2] = kid2
+	if parents < parentsTotal {
+		var _parent = instance_create_layer(spawnX,spawnY,"Instances",parent)
+		kid_controller.line_list[| ds_list_size(kid_controller.line_list)] = _parent
+		_parent.controller = kid_controller
+		_parent.line_pos = ds_list_size(kid_controller.line_list)-1
+	}	
 }	
