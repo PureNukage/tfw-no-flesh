@@ -71,6 +71,14 @@
             }
         },
         {
+            "Key": "22ce2157-84af-4dd9-9eae-58c3ccb07adb",
+            "Value": {
+                "id": "a06aefe7-d025-4a50-9bc6-520659412524",
+                "resourcePath": "objects\\candy\\candy.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "29cc96f0-d438-45c2-8ce6-ad59c6721085",
             "Value": {
                 "id": "c9d2367e-9cda-43d4-91aa-8621aaaacef5",
@@ -92,6 +100,14 @@
                 "id": "818dbccd-0a2d-4b54-9ef4-9b4f628c1727",
                 "resourcePath": "views\\2b6af2b1-3c81-46b0-985f-89f0a3997139.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "31bd368d-debe-4189-8853-6c4a55c11bfa",
+            "Value": {
+                "id": "cf472b28-e9e3-4b83-8a13-26deda624b15",
+                "resourcePath": "scripts\\kid_candydrop\\kid_candydrop.yy",
+                "resourceType": "GMScript"
             }
         },
         {
@@ -271,6 +287,14 @@
             }
         },
         {
+            "Key": "9c851a48-8a89-4eea-80ec-f7c7e341907c",
+            "Value": {
+                "id": "1cf09b7a-1587-4478-99c4-3609d89948f9",
+                "resourcePath": "scripts\\random_color\\random_color.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "a770ec01-9c0c-4b11-8d3a-ee5a3efb226f",
             "Value": {
                 "id": "45db0bb0-5ac3-4370-81c5-b76c572addb2",
@@ -351,6 +375,14 @@
             }
         },
         {
+            "Key": "d55e2efb-965c-4a0b-92a8-7bc945d700e8",
+            "Value": {
+                "id": "cdfec508-7cd3-4b8b-b190-6de19f5abe6c",
+                "resourcePath": "sprites\\s_candy\\s_candy.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "d6b45c29-d413-4d1a-a812-caf2826359ea",
             "Value": {
                 "id": "68e61c00-ca65-4cf8-a84b-865a56b96def",
@@ -402,7 +434,9 @@
     "script_order": [
         "75e29765-c649-439a-bec8-2ab6f0c5bd5c",
         "c0c63106-09e1-495c-9528-37b6851aec02",
-        "48e2b940-4357-4c5d-92c4-c1c1587b28e4"
+        "48e2b940-4357-4c5d-92c4-c1c1587b28e4",
+        "9c851a48-8a89-4eea-80ec-f7c7e341907c",
+        "31bd368d-debe-4189-8853-6c4a55c11bfa"
     ],
     "tutorial": ""
 }

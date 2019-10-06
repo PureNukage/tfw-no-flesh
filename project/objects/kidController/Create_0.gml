@@ -8,6 +8,8 @@ movespeed = 3
 
 line_list = ds_list_create()
 
+states = states.normal
+
 scr_mp_grid_define_path(x,y,goalX,goalY,path,roomController.grid_sidewalk,false)
 x_goto = path_get_point_x(path,pos)
 y_goto = path_get_point_y(path,pos)
