@@ -9,6 +9,7 @@ switch(states)
 		and player.aura >= 1 and line_of_sight {
 			ds_list_delete(controller.line_list,ds_list_find_index(controller.line_list,id))
 			states = states.run
+			ds_list_add(player.aggro_list,id)
 			movespeed = 4
 			goalX = player.x
 			goalY = player.y
@@ -71,9 +72,15 @@ switch(states)
 	#region Run State
 		case states.run:
 			boomer_brain_current++
+			
+			line_of_sight = !collision_line(x,y,player.x,player.y,block,true,false)
 					
 			if line_of_sight and boomer_brain_current >= boomer_brain_needed {
 				boomer_brain_current = 0 
+				//	Make sure we're in the players aggro list
+				if ds_list_find_index(player.aggro_list,id) == -1 {
+					ds_list_add(player.aggro_list,id)	
+				}
 				goalX = player.x
 				goalY = player.y
 				pos = 1
@@ -81,6 +88,10 @@ switch(states)
 				x_goto = path_get_point_x(path,pos)
 				y_goto = path_get_point_y(path,pos)	
 			} else {
+				//	Lost vision, remove ourselves from the players aggro list
+				if ds_list_find_index(player.aggro_list,id) != -1 {
+					ds_list_delete(player.aggro_list,ds_list_find_index(player.aggro_list,id))
+				}
 				x_goto = path_get_point_x(path,pos)
 				y_goto = path_get_point_y(path,pos)
 			}

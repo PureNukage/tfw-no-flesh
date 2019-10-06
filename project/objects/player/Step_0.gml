@@ -3,7 +3,7 @@ switch(states)
 	#region Normal State	
 	case states.normal:	
 	
-	if aura_size > 64 aura_size-- else aura = 0
+	if (ds_list_size(aggro_list) == 0 and aura_size > 64) aura_size-- else aura = 0
 	
 	if playerInput.spook {
 		states = states.spook
@@ -56,6 +56,11 @@ switch(states)
 	
 	break;
 	#endregion
+}
+
+if ds_list_size(aggro_list) > 0 {
+	aura = 2
+	aura_size = 256+(1*ds_list_size(aggro_list))
 }
 
 
