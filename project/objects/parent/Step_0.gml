@@ -70,31 +70,32 @@ switch(states)
 	#endregion
 	#region Run State
 		case states.run:
-					boomer_brain_current++
+			boomer_brain_current++
 					
-					if line_of_sight and boomer_brain_current >= boomer_brain_needed {
-						boomer_brain_current = 0 
-						goalX = player.x
-						goalY = player.y
-						scr_mp_grid_define_path(x,y,goalX,goalY,path,roomController.grid_sidewalk,true)
-						x_goto = path_get_point_x(path,pos)
-						y_goto = path_get_point_y(path,pos)	
-					} else {
-						x_goto = path_get_point_x(path,pos)
-						y_goto = path_get_point_y(path,pos)
-					}
+			if line_of_sight and boomer_brain_current >= boomer_brain_needed {
+				boomer_brain_current = 0 
+				goalX = player.x
+				goalY = player.y
+				pos = 1
+				scr_mp_grid_define_path(x,y,goalX,goalY,path,roomController.grid_sidewalk,true)
+				x_goto = path_get_point_x(path,pos)
+				y_goto = path_get_point_y(path,pos)	
+			} else {
+				x_goto = path_get_point_x(path,pos)
+				y_goto = path_get_point_y(path,pos)
+			}
 					
-					if point_distance(x,y,x_goto,y_goto) < 8 {
-						if ++pos == path_get_number(path) {	
-							//Touching the player
-							
-						} else {
-							x_goto = path_get_point_x(path,pos)
-							y_goto = path_get_point_y(path,pos)
-						}
-					}
+			if point_distance(x,y,x_goto,y_goto) < 8 {
+				if ++pos == path_get_number(path) {	
+					//Touching the player
+					
+				} else {
+					x_goto = path_get_point_x(path,pos)
+					y_goto = path_get_point_y(path,pos)
+				}
+			}
 		
-					mp_potential_step(x_goto,y_goto,movespeed,false)		
+			mp_potential_step(x_goto,y_goto,movespeed,false)		
 		break;
 	#endregion
 }	
