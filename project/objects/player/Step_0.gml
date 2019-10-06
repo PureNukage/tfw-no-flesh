@@ -1,10 +1,14 @@
 switch(states)
 {
+	#region Normal State	
 	case states.normal:	
-	#region Normal State
+	
+	if aura_size > 64 aura_size-- else aura = 0
 	
 	if playerInput.spook {
-		states = states.spook	
+		states = states.spook
+		aura_size = 256
+		aura = 1
 	}
 	
 	hspd = (playerInput.right - playerInput.left)*movespeed
@@ -35,10 +39,11 @@ switch(states)
 		}
 	}
 	
-	#endregion
 	break;
+	#endregion
+	#region Spook States	
 	case states.spook:	
-	#region Spook States
+	
 	timer++
 	hspd = 0
 	vspd = 0
@@ -49,8 +54,8 @@ switch(states)
 	}
 	
 	
-	#endregion
 	break;
+	#endregion
 }
 
 
