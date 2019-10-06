@@ -8,4 +8,6 @@ movespeed = 3
 
 states = states.normal
 
+timer = 0
+
 debug_object_variable

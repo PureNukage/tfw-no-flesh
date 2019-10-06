@@ -4,5 +4,7 @@
 
 enum states {
 	normal,
-	spook
+	spook,
+	
+	run = 6
 }
