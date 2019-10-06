@@ -11,13 +11,14 @@ if number < 44 {
 
 amount_of_candy = 4
 
-var _hspd = 0
-var right_or_left = irandom_range(1,2)
-if right_or_left == 1 _hspd = 1 else _hspd = -1
-
 for(var i=0;i<amount_of_candy;i++) {
 	var _candy = instance_create_layer(x,y,"Instances",candy)
-	_candy.goalY = irandom_range(y+32,y-32)
+	var spread = 128
+	var _hspd = 0
+	var _hspd2 = irandom_range(1,3)
+	var right_or_left = irandom_range(1,2)
+	if right_or_left == 1 _hspd = 1 else _hspd = -1	
+	_candy.goalY = irandom_range(y+spread,y-spread)
 	_candy.vspd = -12
-	_candy.hspd = 3*_hspd
+	_candy.hspd = _hspd2*_hspd
 }

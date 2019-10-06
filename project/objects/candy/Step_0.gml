@@ -1,5 +1,10 @@
 if y != goalY vspd = vspd + grav
 
+size = lerp(size,1,.08)
+
+image_xscale = size
+image_yscale = size
+
 repeat abs(vspd) {
 	var newY = y
 	newY += sign(vspd)
@@ -11,6 +16,10 @@ repeat abs(vspd) {
 		vspd = 0	
 		hspd = 0
 	}
+}
+
+if instance_place(x+hspd,y,player) {
+	instance_destroy()	
 }
 
 x += hspd
