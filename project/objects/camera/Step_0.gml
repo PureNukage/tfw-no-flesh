@@ -1,5 +1,10 @@
-x = player.x
-y = player.y
+if player.states = states.hide {
+	x = player.hidingSpot.x
+	y = player.hidingSpot.y
+} else {
+	x = player.x
+	y = player.y
+}
 
 {
 	var edgeX = camera_get_view_width(cam)/2

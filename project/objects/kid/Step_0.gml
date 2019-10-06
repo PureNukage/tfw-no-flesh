@@ -2,22 +2,22 @@ switch(states)
 {
 	#region Normal State
 	case states.normal:
+	
+		line_of_sight = !collision_line(x,y,player.x,player.y,block,true,false)
+		aura_collide = collision_ellipse(player.x-player.aura_size,player.y-(player.aura_size/2),player.x+player.aura_size,player.y+(player.aura_size/2),id,true,false) 
 		
-		if collision_ellipse(player.x-player.aura_size,player.y-(player.aura_size/2),player.x+player.aura_size,player.y+(player.aura_size/2),id,true,false) {
-			if player.states == states.spook {
-				controller.states = states.spook
-				var loop_size
-				if controller.parent_do_i_have_one == true {
-					loop_size = ds_list_size(controller.line_list)-1	
-				} else loop_size = ds_list_size(controller.line_list)
-				for(var i=0;i<loop_size;i++) {
-					controller.line_list[| i].states = states.spook
-					with controller.line_list[| i] {
-						kid_candydrop()	
-					}
+		if aura_collide and line_of_sight and player.states == states.spook {
+			controller.states = states.spook
+			var loop_size
+			if controller.parent_do_i_have_one == true {
+				loop_size = ds_list_size(controller.line_list)-1	
+			} else loop_size = ds_list_size(controller.line_list)
+			for(var i=0;i<loop_size;i++) {
+				controller.line_list[| i].states = states.spook
+				with controller.line_list[| i] {
+					kid_candydrop()	
 				}
-			}
-		
+			}					
 		}
 	
 		if controller.pos-(line_pos*gap) > 1 {

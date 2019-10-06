@@ -39,9 +39,27 @@ switch(states)
 		}
 	}
 	
+	//Hop into a hiding spot
+	if instance_place(x+hspd,y+vspd,hidingspot) {
+		var _hidingspot = instance_place(x+hspd,y+vspd,hidingspot)
+		hidingSpot = _hidingspot
+		_hidingspot.highlight = true
+		if playerInput.action {
+			_hidingspot.filled = !_hidingspot.filled
+			if _hidingspot.filled == 1 {
+				states = states.hide
+			}
+		}
+	} else {
+		if hidingSpot != 0 { 
+			hidingSpot.highlight = false	
+			hidingSpot = 0
+		}
+	}
+	
 	break;
 	#endregion
-	#region Spook States	
+	#region Spook State	
 	case states.spook:	
 	
 	timer++
@@ -84,6 +102,17 @@ switch(states)
 	
 	
 	break;
+	#endregion
+	#region Hide State
+		case states.hide:
+			image_alpha = 0
+			if playerInput.action {
+				hidingSpot.filled = 0	
+				image_alpha = 1
+				states = states.normal
+			}
+				
+		break;
 	#endregion
 }
 

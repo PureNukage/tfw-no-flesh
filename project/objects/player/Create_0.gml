@@ -16,5 +16,7 @@ lookout_list = ds_list_create()
 
 color = 0
 
+hidingSpot = 0
+
 timer = 0
 states = states.normal
