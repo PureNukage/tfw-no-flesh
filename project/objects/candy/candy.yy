@@ -1,38 +1,28 @@
 {
-    "id": "7f0acf5b-1f95-4be3-9196-b735b303898d",
+    "id": "22ce2157-84af-4dd9-9eae-58c3ccb07adb",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "kid",
+    "name": "candy",
     "eventList": [
         {
-            "id": "87191365-7344-4131-8b07-a0d64fbd4957",
+            "id": "6c0bc0ed-c966-4246-8bbf-e6aa261f2cfd",
             "modelName": "GMEvent",
             "mvc": "1.0",
             "IsDnD": false,
             "collisionObjectId": "00000000-0000-0000-0000-000000000000",
             "enumb": 0,
             "eventtype": 0,
-            "m_owner": "7f0acf5b-1f95-4be3-9196-b735b303898d"
+            "m_owner": "22ce2157-84af-4dd9-9eae-58c3ccb07adb"
         },
         {
-            "id": "8d05791a-6535-4771-81e4-d2b97b6f6e1c",
+            "id": "e5d4d06e-3bf3-4358-83cf-b77db12de9d2",
             "modelName": "GMEvent",
             "mvc": "1.0",
             "IsDnD": false,
             "collisionObjectId": "00000000-0000-0000-0000-000000000000",
             "enumb": 0,
             "eventtype": 3,
-            "m_owner": "7f0acf5b-1f95-4be3-9196-b735b303898d"
-        },
-        {
-            "id": "9d3b7317-a252-47f3-87cb-5b13b3402125",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 0,
-            "eventtype": 8,
-            "m_owner": "7f0acf5b-1f95-4be3-9196-b735b303898d"
+            "m_owner": "22ce2157-84af-4dd9-9eae-58c3ccb07adb"
         }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
@@ -53,6 +43,6 @@
     "physicsStartAwake": true,
     "properties": null,
     "solid": false,
-    "spriteId": "2a32d0f4-95af-4431-b1bc-6fca9921a48f",
+    "spriteId": "d55e2efb-965c-4a0b-92a8-7bc945d700e8",
     "visible": true
 }
