@@ -5,3 +5,5 @@ s_vspd = 0
 movespeed = 3
 Direction = 0
 Speed = 0
+timer = 0
+states = states.normal
