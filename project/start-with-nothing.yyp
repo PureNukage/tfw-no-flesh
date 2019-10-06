@@ -423,14 +423,6 @@
             }
         },
         {
-            "Key": "ece5e7e5-0998-405c-8c53-732da043c197",
-            "Value": {
-                "id": "9dbf5408-ec62-42bd-a17e-abe8a0d9bb14",
-                "resourcePath": "objects\\block64\\block64.yy",
-                "resourceType": "GMObject"
-            }
-        },
-        {
             "Key": "f418569b-3bdd-4706-a0e4-364317f54032",
             "Value": {
                 "id": "a8f6df3d-4146-4ade-aeab-3fc770ab6d1d",

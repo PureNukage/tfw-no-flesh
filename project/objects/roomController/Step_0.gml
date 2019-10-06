@@ -30,6 +30,7 @@ if timer > spawn_time and units < max_units[flesh] {
 	kid2.line_pos = 2
 	kid_controller.line_list[| 2] = kid2
 	if parents < parentsTotal {
+		kid_controller.parent_do_i_have_one = true
 		var _parent = instance_create_layer(spawnX,spawnY,"Instances",parent)
 		kid_controller.line_list[| ds_list_size(kid_controller.line_list)] = _parent
 		_parent.controller = kid_controller
