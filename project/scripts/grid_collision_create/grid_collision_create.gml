@@ -16,7 +16,7 @@ ds_grid_set_region(grid_collision,0,0,room_width/tile_width,room_height/tile_hei
 for(var _x=0;_x<ds_grid_width(grid_collision);_x++) {
 	for(var _y=0;_y<ds_grid_height(grid_collision);_y++) {
 		if instance_position(_x*32,_y*32,house) {
-			//mp_grid_add_cell(grid_sidewalk,_x,_y)	
+			mp_grid_add_cell(grid_sidewalk,_x,_y)	
 		}
 		for(var i=0;i<2;i++) {	
 			var tilemap
