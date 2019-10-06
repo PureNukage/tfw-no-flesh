@@ -1,5 +1,6 @@
-goalX = irandom_range(0,room_width)
-goalY = irandom_range(0,room_height)
+goalX = irandom_range(128,room_width-128)
+goalY = irandom_range(128,room_height-128)
+spawner = -1
 x_goto = 0
 y_goto = 0
 pos = 1

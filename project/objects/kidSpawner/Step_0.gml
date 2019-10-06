@@ -1,13 +1,13 @@
 timer++
 
-if timer == 60 {
+if timer >= 60 and units < 4 {
 	timer = 0
 	units++
-	if units >= 4 timer = 61
 	var kid_controller = instance_create_layer(x,y,"Instances",kidController)
 	var kid0 = instance_create_layer(x,y,"Instances",kid)
 	var kid1 = instance_create_layer(x,y,"Instances",kid)
 	var kid2 = instance_create_layer(x,y,"Instances",kid)
+	kid_controller.spawner = id
 	kid0.controller = kid_controller
 	kid0.line_pos = 0
 	kid_controller.line_list[| 0 ] = kid0

@@ -5,8 +5,8 @@ switch(states)
 		
 		if point_distance(x,y,x_goto,y_goto) < 8 {
 			if ++pos == path_get_number(path) {	
-				goalX = irandom_range(0,room_width)
-				goalY = irandom_range(0,room_height)
+				goalX = irandom_range(128,room_width-128)
+				goalY = irandom_range(128,room_height-128)
 				scr_mp_grid_define_path(x,y,goalX,goalY,path,roomController.grid_sidewalk,false)
 				pos = 1		
 				x_goto = path_get_point_x(path,pos)
@@ -29,18 +29,43 @@ switch(states)
 		if timer >= 45 {
 			timer = 0
 			
+			var _5050 = irandom_range(0,1)
+			
 			//Run away from the player
-			var _goalX = 0
-			var _goalY = 0
-			if (player.x < x) {
-				//while _goalX == 0 {
-				//	var _random_x = irandom_range(x,room_width)
-					//var _random_tile = ds_grid_get(roomController.grid_collision,_random_x,)	
-				//}
-			} else goalX = -128
-			if (player.y < y) {
+			if (player.x < x) and (player.y < y) {			//	Bottom Right
+				if _5050 == 0 {
+					goalX = room_width-64
+					goalY = irandom_range(y,room_height-64)
+				} else {
+					goalX = irandom_range(x,room_width-64)	
+					goalY = room_height-64
+				}
+			} else if (player.x < x) and (player.y > y) {	//	Top Right
+				if _5050 == 0 {
+					goalX = room_width-64
+					goalY = irandom_range(y,0)
+				} else {
+					goalX = irandom_range(x,room_width-64)
+					goalY = 64
+				}					
+			} else if (player.x > x) and (player.y < y) {	//	Bottom Left
+				if _5050 == 0 {
+					goalX = 64
+					goalY = irandom_range(y,room_height-64)
+				} else {
+					goalX = irandom_range(0,x)
+					goalY = room_height-64
+				}
+			} else if (player.x > x) and (player.y > y) {	//	Top Left
+				if _5050 == 0 {
+					goalX = 64
+					goalY = irandom_range(0,y)
+				} else {
+					goalX = irandom_range(0,x)
+					goalY = room_height-64
+				}
 				
-			} else goalY = -128			
+			}
 			
 			for(var i=0;i<ds_list_size(line_list);i++) {
 				line_list[| i].states = states.run
@@ -48,8 +73,9 @@ switch(states)
 			}
 			states = states.run	
 			
+			movespeed = 7
 			pos = 1
-			scr_mp_grid_define_path(x,y,goalX,goalY,path,roomController.grid_sidewalk,false)
+			scr_mp_grid_define_path(x,y,goalX,goalY,path,roomController.grid_sidewalk,true)
 			x_goto = path_get_point_x(path,pos)
 			y_goto = path_get_point_y(path,pos)
 		}
@@ -62,12 +88,11 @@ switch(states)
 			
 		if point_distance(x,y,x_goto,y_goto) < 8 {
 			if ++pos == path_get_number(path) {	
-				goalX = irandom_range(0,room_width)
-				goalY = irandom_range(0,room_height)
-				scr_mp_grid_define_path(x,y,goalX,goalY,path,roomController.grid_sidewalk,false)
-				pos = 1		
-				x_goto = path_get_point_x(path,pos)
-				y_goto = path_get_point_y(path,pos)
+				for(var i=0;i<ds_list_size(line_list);i++) {
+					instance_destroy(line_list[| i]) 
+				}
+				spawner.units--
+				instance_destroy()
 			} else {
 				x_goto = path_get_point_x(path,pos)
 				y_goto = path_get_point_y(path,pos)
