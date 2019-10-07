@@ -20,7 +20,7 @@ switch(states)
 		Direction = point_direction(0,0,hspd,vspd)
 	}
 
-	image_angle = Direction
+	//image_angle = Direction
 
 	//Collision Checks
 	repeat(abs(vspd)) {
@@ -81,7 +81,7 @@ switch(states)
 		Direction = point_direction(0,0,hspd,vspd)
 	}
 
-	image_angle = Direction
+	//image_angle = Direction
 
 	//Collision Checks
 	repeat(abs(vspd)) {
@@ -162,6 +162,20 @@ if ds_list_size(aggro_list) > 0 {
 	//aura_size = 64+(32*ds_list_size(aggro_list))
 } else {
 	
+}
+
+//Walk Animation
+if hspd != 0 or vspd != 0 {
+	image_speed = 1
+	sprite_index = s_skele_run
+	if hspd > 0 {
+		image_xscale = -1
+	} else if hspd < 0 {
+		image_xscale = 1	
+	}
+} else {
+	image_speed = 0
+	sprite_index = s_skele_idle
 }
 
 #region aura

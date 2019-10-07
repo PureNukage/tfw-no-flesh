@@ -12,7 +12,7 @@ switch(states)
 			ds_list_add(player.aggro_list,id)
 			movespeed = 4
 			goalX = player.x
-			goalY = player.y
+			goalY = player.y-12
 			pos = 1
 			scr_mp_grid_define_path(x,y,goalX,goalY,path,roomController.grid_sidewalk,true)
 			x_goto = path_get_point_x(path,pos)
@@ -67,7 +67,7 @@ switch(states)
 					ds_list_delete(player.lookout_list,ds_list_find_index(player.lookout_list,id))
 				}
 				goalX = player.x
-				goalY = player.y
+				goalY = player.y-12
 				pos = 1
 				scr_mp_grid_define_path(x,y,goalX,goalY,path,roomController.grid_sidewalk_and_road_and_grass,true)
 				x_goto = path_get_point_x(path,pos)
@@ -109,7 +109,7 @@ switch(states)
 			if line_of_sight and player.states != states.hide {
 				states = states.run
 				goalX = player.x
-				goalY = player.y
+				goalY = player.y-12
 				scr_mp_grid_define_path(x,y,goalX,goalY,path,roomController.grid_sidewalk_and_road_and_grass,true)
 				pos = 1
 				x_goto = path_get_point_x(path,pos)

@@ -5,4 +5,4 @@ down = keyboard_check(ord("S"))
 
 spook = keyboard_check_pressed(vk_space)
 
-action = keyboard_check_pressed(ord("Q"))
+action = keyboard_check_pressed(ord("E"))

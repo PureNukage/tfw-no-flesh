@@ -255,6 +255,14 @@
             }
         },
         {
+            "Key": "6252347a-da74-4012-a1d4-9beca73e9e01",
+            "Value": {
+                "id": "f2b7b4c9-6030-4042-b837-37cd31f54c68",
+                "resourcePath": "sprites\\s_skele_idle\\s_skele_idle.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "64a3d93c-c9ee-466e-96a9-059940fc837c",
             "Value": {
                 "id": "bef20cd6-fdaf-4739-9922-97f51f2ead92",
@@ -282,7 +290,7 @@
             "Key": "734d504c-41fb-4783-ac0a-6acc23b9fbd5",
             "Value": {
                 "id": "ea1142f3-7526-4faa-9954-8e44bbf54b28",
-                "resourcePath": "sprites\\s_skeleton_tpose\\s_skeleton_tpose.yy",
+                "resourcePath": "sprites\\s_skele_run\\s_skele_run.yy",
                 "resourceType": "GMSprite"
             }
         },
