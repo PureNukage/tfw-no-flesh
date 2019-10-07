@@ -48,9 +48,9 @@ if timer > spawn_time and units < max_units[flesh] {
 			  	case 1:											//	Top Right
 					if _5050 == 0 {
 						spawnX = room_width-64
-						spawnY = irandom_range(room_height/2,0)
+						spawnY = irandom_range(0,room_height/2)
 					} else {
-						spawnX = irandom_range(room_width/2,room_width-64)
+						spawnX = irandom_range(room_width/2,room_width-128)
 						spawnY = 64
 					}	
 				break;
@@ -69,10 +69,12 @@ if timer > spawn_time and units < max_units[flesh] {
 						spawnY = irandom_range(0,room_height/2)
 					} else {
 						spawnX = irandom_range(0,room_width/2)
-						spawnY = room_height-64
+						spawnY = 64
 					}
 				break;
 			}
+			//show_message("which corner: "+string(_whichCorner))
+			//show_message("50/50: "+string(_5050))
 			
 		#endregion
 				
