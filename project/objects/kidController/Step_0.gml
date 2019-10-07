@@ -5,12 +5,73 @@ switch(states)
 		
 		if point_distance(x,y,x_goto,y_goto) < 8 {
 			if ++pos == path_get_number(path) {	
-				goalX = irandom_range(128,room_width-128)
-				goalY = irandom_range(128,room_height-128)
-				scr_mp_grid_define_path(x,y,goalX,goalY,path,roomController.grid_sidewalk,false)
-				pos = 1		
-				x_goto = path_get_point_x(path,pos)
-				y_goto = path_get_point_y(path,pos)
+				//Arrived at House (presumably)
+				if ds_list_size(route) > 0 {
+					goalX = route[| 0].x+96
+					goalY = route[| 0].y+200
+					ds_list_delete(route,0)
+					scr_mp_grid_define_path(x,y,goalX,goalY,path,roomController.grid_sidewalk,false)
+					pos = 1
+					x_goto = path_get_point_x(path,pos)
+					y_goto = path_get_point_y(path,pos)
+				} else {
+					//End of the route	
+					states = states.run
+					#region which corner
+						var _whichCorner = irandom_range(0,3)
+						var _5050 = irandom_range(0,1)
+						var spawnX = 0
+						var spawnY = 0
+			
+						//Choose which corner this squad will spawn in 
+						switch(_whichCorner) 
+						{
+							case 0:											//	Bottom Right
+								if _5050 == 0 {
+									spawnX = room_width-64
+									spawnY = irandom_range(y,room_height-64)
+								} else {
+									spawnX = irandom_range(x,room_width-64)	
+									spawnY = room_height-64
+								}
+							break;
+							case 1:											//	Top Right
+								if _5050 == 0 {
+									spawnX = room_width-64
+									spawnY = irandom_range(y,0)
+								} else {
+									spawnX = irandom_range(x,room_width-64)
+									spawnY = 64
+								}	
+							break;
+							case 2:											//	Bottom Left
+								if _5050 == 0 {
+									spawnX = 64
+									spawnY = irandom_range(y,room_height-64)
+								} else {
+									spawnX = irandom_range(0,x)
+									spawnY = room_height-64
+								}
+							break;
+							case 3:											//	Top Left
+								if _5050 == 0 {
+									spawnX = 64
+									spawnY = irandom_range(0,y)
+								} else {
+									spawnX = irandom_range(0,x)
+									spawnY = room_height-64
+								}
+							break;
+						}
+					#endregion
+					
+					scr_mp_grid_define_path(x,y,spawnX,spawnY,path,roomController.grid_sidewalk,false)
+					pos = 1
+					x_goto = path_get_point_x(path,pos)
+					y_goto = path_get_point_y(path,pos)
+					
+				}
+				
 			} else {
 				x_goto = path_get_point_x(path,pos)
 				y_goto = path_get_point_y(path,pos)
