@@ -214,14 +214,16 @@ if ds_list_size(aggro_list) > 0 {
 //Collision with Parent
 if instance_place(x,y,parent) and states != states.hide and damage_taken == 0 {
 	var _enemy = instance_place(x,y,parent)
-	damage_taken = 1
-	hp--
-	states = states.damage
-	movespeed_old = movespeed
-	movespeed = 64
-	Direction = point_direction(x,y,_enemy.x,_enemy.y)-180
-	vspd += lengthdir_y(movespeed,Direction)
-	hspd += lengthdir_x(movespeed,Direction)
+	if _enemy.states == states.look or _enemy.states == states.run {
+		damage_taken = 1
+		hp--
+		states = states.damage
+		movespeed_old = movespeed
+		movespeed = 64
+		Direction = point_direction(x,y,_enemy.x,_enemy.y)-180
+		vspd += lengthdir_y(movespeed,Direction)
+		hspd += lengthdir_x(movespeed,Direction)
+	}
 }
 
 if hp <= 0 {

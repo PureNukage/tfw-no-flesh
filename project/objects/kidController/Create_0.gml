@@ -8,6 +8,7 @@ movespeed = 3
 line_list = ds_list_create()
 
 route = ds_list_create()
+route_visited = ds_list_create()
 kid_route()
 goalX = route[| 0].x+96
 goalY = route[| 0].y+200

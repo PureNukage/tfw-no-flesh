@@ -32,7 +32,9 @@ switch(states)
 						arrived = false
 						goalX = route[| 0].x+96
 						goalY = route[| 0].y+200
-						ds_list_delete(route,0)
+						ds_list_add(route_visited,route[| 0])
+						ds_list_clear(route)
+						kid_route()
 						scr_mp_grid_define_path(x,y,goalX,goalY,path,roomController.grid_sidewalk,false)
 						pos = 1
 						x_goto = path_get_point_x(path,pos)
@@ -127,7 +129,9 @@ switch(states)
 				arrived = false
 				goalX = route[| 0].x+96
 				goalY = route[| 0].y+200
-				ds_list_delete(route,0)
+				ds_list_add(route_visited,route[| 0])
+				ds_list_clear(route)
+				kid_route()
 				scr_mp_grid_define_path(x,y,goalX,goalY,path,roomController.grid_sidewalk,false)
 				pos = 1
 				x_goto = path_get_point_x(path,pos)
