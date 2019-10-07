@@ -1,7 +1,7 @@
 timer++
 
 if keyboard_check_pressed(vk_anykey) {
-	if textCurrent != 10 timer = timerRequired
+	if textCurrent < 12 timer = timerRequired
 	else room_goto_next()	
 }
 
