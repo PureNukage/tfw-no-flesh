@@ -7,13 +7,36 @@ switch(states)
 			if ++pos == path_get_number(path) {	
 				//Arrived at House (presumably)
 				if ds_list_size(route) > 0 {
-					goalX = route[| 0].x+96
-					goalY = route[| 0].y+200
-					ds_list_delete(route,0)
-					scr_mp_grid_define_path(x,y,goalX,goalY,path,roomController.grid_sidewalk,false)
-					pos = 1
-					x_goto = path_get_point_x(path,pos)
-					y_goto = path_get_point_y(path,pos)
+					//Check if all kids are here
+					if parent_do_i_have_one == true {
+						var amount_of_kids = ds_list_size(line_list)-1
+					} else var amount_of_kids = ds_list_size(line_list)
+					var have_my_kids_arrived = 0
+					while(have_my_kids_arrived < amount_of_kids) {
+						for(var i=0;i<amount_of_kids;i++) {
+							if i == 0 {
+								if distance_to_point(line_list[| i].x,line_list[| i].y) < 75 {
+									have_my_kids_arrived++
+								}
+							} else {
+								show_message("i: "+string(i))
+								with line_list[| i] {
+									if distance_to_point(other.line_list[| i-1].x,other.line_list[| i-1].y) < 75 {
+										have_my_kids_arrived++	
+									}
+								}
+							}	
+						}
+					}
+					if have_my_kids_arrived == amount_of_kids {
+						goalX = route[| 0].x+96
+						goalY = route[| 0].y+200
+						ds_list_delete(route,0)
+						scr_mp_grid_define_path(x,y,goalX,goalY,path,roomController.grid_sidewalk,false)
+						pos = 1
+						x_goto = path_get_point_x(path,pos)
+						y_goto = path_get_point_y(path,pos)
+					}
 				} else {
 					//End of the route	
 					states = states.run
@@ -176,6 +199,8 @@ switch(states)
 		mp_potential_step(x_goto,y_goto,movespeed,false)		
 			
 		break;
-	#endregion
+	#endregion	
 }
+
+route_size = ds_list_size(route)
 depth = -y

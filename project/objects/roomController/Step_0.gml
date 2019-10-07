@@ -19,9 +19,15 @@ if fleshPercentage > 100 {
 	}
 }
 
+
+
+
+
 parentsTotal = (parent_percentage[flesh]/100)*max_units[flesh]
 
 if timer > spawn_time and units < max_units[flesh] {
+	
+		#region Choose which corner to spawn kids in 
 			var _whichCorner = irandom_range(0,3)
 			var _5050 = irandom_range(0,1)
 			var spawnX = 0
@@ -67,6 +73,8 @@ if timer > spawn_time and units < max_units[flesh] {
 					}
 				break;
 			}
+			
+		#endregion
 				
 	timer = 0
 	units++

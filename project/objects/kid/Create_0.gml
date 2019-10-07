@@ -9,6 +9,7 @@ movespeed = 3
 states = states.normal
 
 timer = 0
+//arrived = 0
 
 parent_do_i_have_one = -1
 

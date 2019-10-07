@@ -12,6 +12,7 @@ kid_route()
 goalX = route[| 0].x+96
 goalY = route[| 0].y+200
 ds_list_delete(route,0)
+route_size = ds_list_size(route)
 
 states = states.normal
 
