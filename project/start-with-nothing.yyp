@@ -399,6 +399,14 @@
             }
         },
         {
+            "Key": "bffe751c-ece2-4b9e-87c0-5e89de48ea81",
+            "Value": {
+                "id": "555001db-effe-43ee-b33f-714d8c2643c8",
+                "resourcePath": "objects\\debugDestroy\\debugDestroy.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "c0c63106-09e1-495c-9528-37b6851aec02",
             "Value": {
                 "id": "65d699b0-a973-4a81-8ddd-4227ed05aa6f",

@@ -8,7 +8,8 @@ enum states {
 	hide,
 	
 	run = 6,
-	look = 7
+	look = 7,
+	flee = 8
 }
 
 enum flesh {

@@ -20,25 +20,25 @@ switch(states)
 			exit
 		}
 
-		if controller.pos-(line_pos*gap) > 1 {
-			pos = controller.pos-(line_pos*gap)
-			x_goto = path_get_point_x(controller.path,pos)
-			y_goto = path_get_point_y(controller.path,pos)
+			if controller.pos-(line_pos*gap) > 1 {
+				pos = controller.pos-(line_pos*gap)
+				x_goto = path_get_point_x(controller.path,pos)
+				y_goto = path_get_point_y(controller.path,pos)
 
-			if point_distance(x,y,x_goto,y_goto) < 8 {
-				if ++pos == path_get_number(controller.path) {	
-					//scr_mp_grid_define_path(x,y,goalX,goalY+198,controller.path,roomController.grid_sidewalk,false)
-					x_goto = path_get_point_x(controller.path,pos)
-					y_goto = path_get_point_y(controller.path,pos)
-				} else {
-					x_goto = path_get_point_x(controller.path,pos)
-					y_goto = path_get_point_y(controller.path,pos)
+				if point_distance(x,y,x_goto,y_goto) < 8 {
+					if ++pos == path_get_number(controller.path) {	
+						//scr_mp_grid_define_path(x,y,goalX,goalY+198,controller.path,roomController.grid_sidewalk,false)
+						x_goto = path_get_point_x(controller.path,pos)
+						y_goto = path_get_point_y(controller.path,pos)
+					} else {
+						x_goto = path_get_point_x(controller.path,pos)
+						y_goto = path_get_point_y(controller.path,pos)
+					}
 				}
-			}
 		
-			mp_potential_step(x_goto,y_goto,movespeed,false)
+				mp_potential_step(x_goto,y_goto,movespeed,false)
 
-		}	
+			}	
 
 	break;
 	#endregion
@@ -120,7 +120,7 @@ switch(states)
 			//Exit Search Pattern
 			if search_timer >= 180 {
 				search_timer = 0
-				states = states.normal	
+				states = states.normal
 				movespeed = 3
 				//	Done looking for player, remove ourselves from the players lookout list
 				if ds_list_find_index(player.lookout_list,id) != -1 {
@@ -140,52 +140,49 @@ switch(states)
 					y_goto = path_get_point_y(controller.path,pos)
 				} else {
 					#region Select which corner to run to 
-						var _whichCorner = irandom_range(0,3)
 						var _5050 = irandom_range(0,1)
 						var _goalX = 0
 						var _goalY = 0
 			
-						//Choose which corner this squad will spawn in 
-						switch(_whichCorner) 
-						{
-							case 0:											//	Bottom Right
-								if _5050 == 0 {
-									_goalX = room_width-64
-									_goalY = irandom_range(y,room_height-64)
-								} else {
-									_goalX = irandom_range(x,room_width-64)	
-									_goalY = room_height-64
-								}
-							break;
-							case 1:											//	Top Right
-								if _5050 == 0 {
-									_goalX = room_width-64
-									_goalY = irandom_range(y,0)
-								} else {
-									_goalX = irandom_range(x,room_width-64)
-									_goalY = 64
-								}	
-							break;
-							case 2:											//	Bottom Left
-								if _5050 == 0 {
-									_goalX = 64
-									_goalY = irandom_range(y,room_height-64)
-								} else {
-									_goalX = irandom_range(0,x)
-									_goalY = room_height-64
-								}
-							break;
-							case 3:											//	Top Left
-								if _5050 == 0 {
-									_goalX = 64
-									_goalY = irandom_range(0,y)
-								} else {
-									_goalX = irandom_range(0,x)
-									_goalY = room_height-64
-								}
-							break;
+						var _5050 = irandom_range(0,1)
+			
+						//Run away from the player
+						if (player.x < x) and (player.y < y) {			//	Bottom Right
+							if _5050 == 0 {
+								_goalX = room_width-64
+								_goalY = irandom_range(y,room_height-64)
+							} else {
+								_goalX = irandom_range(x,room_width-64)	
+								_goalY = room_height-64
+							}
+						} else if (player.x < x) and (player.y > y) {	//	Top Right
+							if _5050 == 0 {
+								_goalX = room_width-64
+								_goalY = irandom_range(y,0)
+							} else {
+								_goalX = irandom_range(x,room_width-64)
+								_goalY = 64
+							}					
+						} else if (player.x > x) and (player.y < y) {	//	Bottom Left
+							if _5050 == 0 {
+								_goalX = 64
+								_goalY = irandom_range(y,room_height-64)
+							} else {
+								_goalX = irandom_range(0,x)
+								_goalY = room_height-64
+							}
+						} else if (player.x > x) and (player.y > y) {	//	Top Left
+							if _5050 == 0 {
+								_goalX = 64
+								_goalY = irandom_range(0,y)
+							} else {
+								_goalX = irandom_range(0,x)
+								_goalY = room_height-64
+							}
+				
 						}
 						
+						show_message("hi")
 						scr_mp_grid_define_path(x,y,_goalX,_goalY,path,roomController.grid_sidewalk,true)
 						pos = 1
 						x_goto = path_get_point_x(path,pos)
@@ -224,6 +221,13 @@ switch(states)
 					}		
 				}
 			}
+			
+			
+		break;
+	#endregion
+	#region Flee State
+		case states.flee:
+			
 			
 			
 		break;
