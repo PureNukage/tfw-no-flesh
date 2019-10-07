@@ -22,7 +22,7 @@ switch(state)
 	case 1:
 	
 		
-		if distance_to_object(player) < 80 {
+		if distance_to_object(player) < 140 {
 			movespeed = lerp(movespeed,movespeedMax,.3)
 			move_towards_point(player.x,player.y,movespeed)	
 		} else {

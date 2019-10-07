@@ -6,6 +6,9 @@ fleshPercentage = (fleshCurrent/fleshRequired[flesh])*100
 if fleshPercentage > 100 {
 	flesh++
 	fleshCurrent = 0 
+	if player.hp < 3 {
+		player.hp++	
+	}
 }
 
 parentsTotal = (parent_percentage[flesh]/100)*max_units[flesh]

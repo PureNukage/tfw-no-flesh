@@ -6,6 +6,7 @@ enum states {
 	normal,
 	spook,
 	hide,
+	damage,
 	
 	run = 6,
 	look = 7,
