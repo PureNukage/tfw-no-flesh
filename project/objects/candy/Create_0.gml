@@ -1,5 +1,6 @@
-color = random_color()
-image_blend = color
+//color = random_color()
+//image_blend = color
+image_speed = 0
 
 size = 0
 vspd = 0

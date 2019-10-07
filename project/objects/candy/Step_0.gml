@@ -33,6 +33,8 @@ switch(state)
 	break;
 }
 
+image_angle = image_angle+2
+
 size = lerp(size,1,.08)
 
 image_xscale = size
