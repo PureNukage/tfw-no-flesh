@@ -1,6 +1,6 @@
 if player.states = states.hide {
-	x = player.hidingSpot.x
-	y = player.hidingSpot.y
+	x = player.hidingSpot.x+64
+	y = player.hidingSpot.y+64
 } else {
 	x = player.x
 	y = player.y

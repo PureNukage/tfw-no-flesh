@@ -36,7 +36,7 @@ fleshArt[1] = s_flesh_leg
 fleshArt[2] = s_flesh_arm
 fleshArt[3] = s_flesh_arm
 fleshArt[4] = s_flesh_chest
-fleshArt[5] = s_flesh_chest
+fleshArt[5] = s_flesh_head
 
 fleshPercentage = (fleshCurrent/fleshRequired[flesh])*100 
 
