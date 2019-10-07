@@ -15,12 +15,12 @@ fleshRequired[3] = 72
 fleshRequired[4] = 86
 fleshRequired[5] = 100
 
-max_units[0] = 6
-max_units[1] = 9
-max_units[2] = 22
-max_units[3] = 24
-max_units[4] = 27
-max_units[5] = 30
+max_units[0] = 4
+max_units[1] = 6
+max_units[2] = 9
+max_units[3] = 12
+max_units[4] = 12
+max_units[5] = 12
 
 parents = 0
 parentsTotal = 0 

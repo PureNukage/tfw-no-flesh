@@ -9,7 +9,7 @@ var tile_height = 16
 grid_collision = ds_grid_create(room_width/tile_width,room_height/tile_height)
 
 grid_sidewalk = mp_grid_create(0,0,room_width/tile_width,room_height/tile_height,tile_width,tile_height)
-grid_sidewalk_and_road = mp_grid_create(0,0,room_width/tile_width,room_height/tile_height,tile_width,tile_height)
+grid_sidewalk_and_road_and_grass = mp_grid_create(0,0,room_width/tile_width,room_height/tile_height,tile_width,tile_height)
 
 ds_grid_set_region(grid_collision,0,0,room_width/tile_width,room_height/tile_height,-1)
 
@@ -17,6 +17,7 @@ for(var _x=0;_x<ds_grid_width(grid_collision);_x++) {
 	for(var _y=0;_y<ds_grid_height(grid_collision);_y++) {
 		if instance_position(_x*16,_y*16,house) {
 			mp_grid_add_cell(grid_sidewalk,_x,_y)	
+			mp_grid_add_cell(grid_sidewalk_and_road_and_grass,_x,_y)
 		}
 		for(var i=0;i<3;i++) {	
 			var tilemap

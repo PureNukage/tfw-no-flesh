@@ -203,7 +203,7 @@ switch(states)
 			
 			movespeed = 7
 			pos = 1
-			scr_mp_grid_define_path(x,y,goalX,goalY,path,roomController.grid_sidewalk,true)
+			scr_mp_grid_define_path(x,y,goalX,goalY,path,roomController.grid_sidewalk_and_road_and_grass,true)
 			x_goto = path_get_point_x(path,pos)
 			y_goto = path_get_point_y(path,pos)
 		}

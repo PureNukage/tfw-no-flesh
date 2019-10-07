@@ -69,7 +69,7 @@ switch(states)
 				goalX = player.x
 				goalY = player.y
 				pos = 1
-				scr_mp_grid_define_path(x,y,goalX,goalY,path,roomController.grid_sidewalk,true)
+				scr_mp_grid_define_path(x,y,goalX,goalY,path,roomController.grid_sidewalk_and_road_and_grass,true)
 				x_goto = path_get_point_x(path,pos)
 				y_goto = path_get_point_y(path,pos)	
 			} else if !line_of_sight and boomer_brain_current >= boomer_brain_needed {
@@ -110,7 +110,7 @@ switch(states)
 				states = states.run
 				goalX = player.x
 				goalY = player.y
-				scr_mp_grid_define_path(x,y,goalX,goalY,path,roomController.grid_sidewalk,true)
+				scr_mp_grid_define_path(x,y,goalX,goalY,path,roomController.grid_sidewalk_and_road_and_grass,true)
 				pos = 1
 				x_goto = path_get_point_x(path,pos)
 				y_goto = path_get_point_y(path,pos)
@@ -208,7 +208,7 @@ switch(states)
 					var _goalX = (_centerTileX + irandom_range(-search_radius,search_radius)) * 16
 					var _goalY = (_centerTileY + irandom_range(-search_radius,search_radius)) * 16
 				
-					if scr_mp_grid_define_path(x,y,_goalX,_goalY,path,roomController.grid_sidewalk,true) {
+					if scr_mp_grid_define_path(x,y,_goalX,_goalY,path,roomController.grid_sidewalk_and_road_and_grass,true) {
 						movespeed = 5
 						states = states.run
 						pos = 1

@@ -120,13 +120,18 @@ switch(states)
 	#region Damaged State
 		case states.damage:
 		
-			if hspd == 0 and vspd == 0 {
-				damage_taken = 0
+			hspd = (playerInput.right - playerInput.left)*2
+
+			vspd = (playerInput.down - playerInput.up)*2
+		
+			damage_taken--
+			
+			if damage_taken <= 0 {
 				states = states.normal
-				movespeed = movespeed_old
+				movespeed = 3
 			}
-			hspd = lerp(hspd,0,.5)
-			vspd = lerp(vspd,0,.5)
+			hspd--
+			vspd--
 			
 			//Check for horizontal collisions
 			repeat(abs(hspd)) {
@@ -215,7 +220,7 @@ if ds_list_size(aggro_list) > 0 {
 if instance_place(x,y,parent) and states != states.hide and damage_taken == 0 {
 	var _enemy = instance_place(x,y,parent)
 	if _enemy.states == states.look or _enemy.states == states.run {
-		damage_taken = 1
+		damage_taken = 32
 		hp--
 		states = states.damage
 		movespeed_old = movespeed
