@@ -29,6 +29,13 @@ parent_percentage[3] = 33
 parent_percentage[4] = 50
 parent_percentage[5] = 66
 
+fleshArt[0] = s_flesh_leg
+fleshArt[1] = s_flesh_leg
+fleshArt[2] = s_flesh_arm
+fleshArt[3] = s_flesh_arm
+fleshArt[4] = s_flesh_chest
+fleshArt[5] = s_flesh_chest
+
 fleshPercentage = (fleshCurrent/fleshRequired[flesh])*100 
 
 debug_object_variable

@@ -47,6 +47,14 @@
             }
         },
         {
+            "Key": "091af7d1-5c94-4d28-a209-d43ea7b65695",
+            "Value": {
+                "id": "6d59199e-ec1f-47ae-8748-bacaa6c11fa5",
+                "resourcePath": "sprites\\s_flesh_leg\\s_flesh_leg.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "094168b2-5e59-4d3a-b233-9a7bad01127f",
             "Value": {
                 "id": "8995feee-f78a-48e2-82ed-7ab5b69483e7",
@@ -247,6 +255,14 @@
             }
         },
         {
+            "Key": "64a3d93c-c9ee-466e-96a9-059940fc837c",
+            "Value": {
+                "id": "bef20cd6-fdaf-4739-9922-97f51f2ead92",
+                "resourcePath": "views\\64a3d93c-c9ee-466e-96a9-059940fc837c.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "6588f68b-96ff-47d2-9b86-7b7b82e5f4b1",
             "Value": {
                 "id": "ba712e1c-648c-44d8-9c7f-9317d57ee79a",
@@ -300,6 +316,14 @@
                 "id": "abbce637-5369-489f-8ca9-f04685a5de56",
                 "resourcePath": "objects\\kid\\kid.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "82f82787-f059-4902-b967-96d9cc297aa2",
+            "Value": {
+                "id": "f160160a-efb5-4ac7-8c00-ec83601572ce",
+                "resourcePath": "sprites\\s_flesh_arm\\s_flesh_arm.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -407,6 +431,14 @@
             }
         },
         {
+            "Key": "b6a7b554-0c63-40eb-9fcc-2b9ed3cb2755",
+            "Value": {
+                "id": "f8e54d1d-1723-4bee-b417-fcc7706ffdc9",
+                "resourcePath": "sprites\\s_flesh_chest\\s_flesh_chest.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "b8705226-6731-443c-88b0-9b96f9a2fbc5",
             "Value": {
                 "id": "6c1a1190-03ab-4247-96fa-0820cee1a0d2",
@@ -427,6 +459,14 @@
             "Value": {
                 "id": "d38fd82d-0fa9-408f-8b4a-b7e58b041199",
                 "resourcePath": "sprites\\s_pumpkin\\s_pumpkin.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "bc99b4e7-8900-46c1-90e3-5475e54471f3",
+            "Value": {
+                "id": "4d06c045-1266-4455-8661-c60ddfcf582b",
+                "resourcePath": "sprites\\s_flesh_head\\s_flesh_head.yy",
                 "resourceType": "GMSprite"
             }
         },
