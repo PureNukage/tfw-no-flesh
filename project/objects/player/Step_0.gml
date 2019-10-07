@@ -120,53 +120,61 @@ switch(states)
 }
 
 if ds_list_size(aggro_list) > 0 {
-	aura_size = 64+(32*ds_list_size(aggro_list))
+	//aura_size = 64+(32*ds_list_size(aggro_list))
 } else {
 	
 }
 
-switch(aura)
-{
-	case 0: 
-		if ds_list_size(aggro_list) == 0 and ds_list_size(lookout_list) == 0 {
-			color = c_white 
-			if aura_size > 64 aura_size--
-		} else {
+#region aura
+
+	switch(aura)
+	{
+		case 0: 
+			if ds_list_size(aggro_list) == 0 and ds_list_size(lookout_list) == 0 {
+				color = c_white 
+				aura_size--
+				aura_size = clamp(aura_size,64,(64+(32*ds_list_size(aggro_list)))+256)
+			} else {
+				if ds_list_size(aggro_list) > 0 {
+					aura = 2	
+				} else {
+					if ds_list_size(lookout_list) > 0 {
+						aura = 1	
+					}
+				}
+			}
+		break;
+		case 1: 
+			if ds_list_size(aggro_list) == 0 and ds_list_size(lookout_list) > 0 {
+				color = c_yellow
+				aura_size--
+				aura_size = clamp(aura_size,64+(32*ds_list_size(aggro_list)),128+(32*ds_list_size(aggro_list))+256)
+			} else {
+				if ds_list_size(aggro_list) > 0 {
+					aura = 2	
+				} else {
+					if ds_list_size(lookout_list) == 0 {
+						aura = 0	
+					}
+				}
+			}
+		
+		
+		break;
+		case 2: 
 			if ds_list_size(aggro_list) > 0 {
-				aura = 2	
+				color = c_red 
+				aura_size--
+				aura_size = clamp(aura_size,64+(32*ds_list_size(aggro_list)),64+(32*ds_list_size(aggro_list))+256)
 			} else {
 				if ds_list_size(lookout_list) > 0 {
 					aura = 1	
-				}
+				} else aura = 0
 			}
-		}
-	break;
-	case 1: 
-		if ds_list_size(aggro_list) == 0 and ds_list_size(lookout_list) > 0 {
-			color = c_yellow
-			aura_size = 128
-		} else {
-			if ds_list_size(aggro_list) > 0 {
-				aura = 2	
-			} else {
-				if ds_list_size(lookout_list) == 0 {
-					aura = 0	
-				}
-			}
-		}
-		
-		
-	break;
-	case 2: 
-		if ds_list_size(aggro_list) > 0 {
-			color = c_red 
-		} else {
-			if ds_list_size(lookout_list) > 0 {
-				aura = 1	
-			} else aura = 0
-		}
-	break;
-}
+		break;
+	}
+	
+#endregion
 
 aggro_list_size = ds_list_size(aggro_list)
 lookout_list_size = ds_list_size(lookout_list)
