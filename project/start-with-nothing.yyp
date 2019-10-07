@@ -87,6 +87,14 @@
             }
         },
         {
+            "Key": "1a768af4-3b00-4227-81ba-74b5631a63d3",
+            "Value": {
+                "id": "d4597145-8785-4c80-a70a-788ae84b018d",
+                "resourcePath": "objects\\textController\\textController.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "1af79223-501d-4c4e-8d99-f161dc4bc3b3",
             "Value": {
                 "id": "bd78f28c-4106-44cc-9829-883750fef689",
@@ -212,6 +220,14 @@
                 "id": "f68514da-7947-4d4e-bb9f-79550c32d208",
                 "resourcePath": "scripts\\scr_mp_grid_define_path\\scr_mp_grid_define_path.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "4e73235b-e4a9-46a3-8117-43e623bac4d8",
+            "Value": {
+                "id": "b6f63819-cb22-4ee8-983b-2aa526c7e376",
+                "resourcePath": "rooms\\mainmenu\\mainmenu.yy",
+                "resourceType": "GMRoom"
             }
         },
         {
@@ -503,6 +519,14 @@
             }
         },
         {
+            "Key": "c9099d29-dbed-437d-8b8c-c77fdc652180",
+            "Value": {
+                "id": "e5ea4df6-55f0-4a59-b79e-f14a3170d4ee",
+                "resourcePath": "views\\c9099d29-dbed-437d-8b8c-c77fdc652180.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "cc98d028-7bdd-4680-85f3-c87a7baa481e",
             "Value": {
                 "id": "d76a86cc-edd2-492d-a6cb-d47fed0759ba",
@@ -559,6 +583,14 @@
             }
         },
         {
+            "Key": "ed0d875e-52d7-4bfe-b958-78429e5e9b4c",
+            "Value": {
+                "id": "7e46349e-fa74-4154-8307-2e252868f3d3",
+                "resourcePath": "fonts\\font0\\font0.yy",
+                "resourceType": "GMFont"
+            }
+        },
+        {
             "Key": "f418569b-3bdd-4706-a0e4-364317f54032",
             "Value": {
                 "id": "a8f6df3d-4146-4ade-aeab-3fc770ab6d1d",
@@ -572,6 +604,14 @@
                 "id": "b9aaaaea-aaf5-4e91-87f3-061a49e7189b",
                 "resourcePath": "views\\f542821c-c57f-43c7-b37f-4ce082a8c27f.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "fc406864-7173-4d37-9e8e-1a855a8cd0bc",
+            "Value": {
+                "id": "5c8fa933-3838-4267-b392-c47c6878616c",
+                "resourcePath": "objects\\textChild\\textChild.yy",
+                "resourceType": "GMObject"
             }
         }
     ],

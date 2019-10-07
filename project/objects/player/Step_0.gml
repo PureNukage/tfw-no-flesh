@@ -246,7 +246,7 @@ if instance_place(x,y,parent) and states != states.hide and damage_taken == 0 {
 }
 
 if hp <= 0 {
-	game_end()	
+	game_restart()
 }
 
 aggro_list_size = ds_list_size(aggro_list)
