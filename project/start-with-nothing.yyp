@@ -111,6 +111,14 @@
             }
         },
         {
+            "Key": "2321df99-6e41-4045-9eeb-112dad7b27b8",
+            "Value": {
+                "id": "0f52d0f3-fcf5-4721-aca8-2a2ca3854afb",
+                "resourcePath": "sprites\\s_pumpkin_highlight\\s_pumpkin_highlight.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "29cc96f0-d438-45c2-8ce6-ad59c6721085",
             "Value": {
                 "id": "c9d2367e-9cda-43d4-91aa-8621aaaacef5",

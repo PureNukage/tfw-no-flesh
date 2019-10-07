@@ -89,7 +89,6 @@ switch(states)
 				if ++pos == path_get_number(path) {	
 					//Arrived at destination; look for the player
 						states = states.look
-						
 				} else {
 					x_goto = path_get_point_x(path,pos)
 					y_goto = path_get_point_y(path,pos)

@@ -4,36 +4,7 @@
     "mvc": "1.0",
     "name": "trashcan",
     "eventList": [
-        {
-            "id": "876f973f-b761-4997-bcd4-5487c879629b",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 0,
-            "eventtype": 0,
-            "m_owner": "35977b8a-60da-444d-8859-1261e696525a"
-        },
-        {
-            "id": "056a8822-32fa-4de7-8600-4ea5fbbf134b",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 0,
-            "eventtype": 3,
-            "m_owner": "35977b8a-60da-444d-8859-1261e696525a"
-        },
-        {
-            "id": "2a4bd7ef-36b9-4c82-880f-682b0e15b300",
-            "modelName": "GMEvent",
-            "mvc": "1.0",
-            "IsDnD": false,
-            "collisionObjectId": "00000000-0000-0000-0000-000000000000",
-            "enumb": 0,
-            "eventtype": 8,
-            "m_owner": "35977b8a-60da-444d-8859-1261e696525a"
-        }
+        
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",
     "overriddenProperties": null,
