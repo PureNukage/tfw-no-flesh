@@ -14,9 +14,14 @@ aura_size = 64
 aggro_list = ds_list_create()
 lookout_list = ds_list_create()
 
+aggro_list_size = ds_list_size(aggro_list)
+lookout_list_size = ds_list_size(lookout_list)
+
 color = 0
 
 hidingSpot = 0
 
 timer = 0
 states = states.normal
+
+debug_object_variable

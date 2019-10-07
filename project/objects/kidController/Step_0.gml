@@ -97,6 +97,13 @@ switch(states)
 				for(var i=0;i<ds_list_size(line_list);i++) {
 					instance_destroy(line_list[| i]) 
 				}
+				if parent_do_i_have_one == true {
+					with parent {
+						if controller = other.id {
+							controller = -1	
+						}
+					}
+				}
 				spawner.units--
 				instance_destroy()
 			} else {

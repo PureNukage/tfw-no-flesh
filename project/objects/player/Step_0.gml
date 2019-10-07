@@ -168,5 +168,7 @@ switch(aura)
 	break;
 }
 
+aggro_list_size = ds_list_size(aggro_list)
+lookout_list_size = ds_list_size(lookout_list)
 
 depth = -y

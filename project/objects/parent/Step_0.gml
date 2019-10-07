@@ -56,7 +56,7 @@ switch(states)
 			
 			line_of_sight = !collision_line(x,y,player.x,player.y,block,true,false)
 					
-			if line_of_sight and boomer_brain_current >= boomer_brain_needed {
+			if line_of_sight and boomer_brain_current >= boomer_brain_needed and player.states != states.hide {
 				boomer_brain_current = 0 
 				//	Make sure we're in the players aggro list
 				if ds_list_find_index(player.aggro_list,id) == -1 {
@@ -107,7 +107,7 @@ switch(states)
 			//See Player 
 			line_of_sight = !collision_line(x,y,player.x,player.y,block,true,false)
 			
-			if line_of_sight {
+			if line_of_sight and player.states != states.hide {
 				states = states.run
 				goalX = player.x
 				goalY = player.y
@@ -125,14 +125,79 @@ switch(states)
 				//	Done looking for player, remove ourselves from the players lookout list
 				if ds_list_find_index(player.lookout_list,id) != -1 {
 					ds_list_delete(player.lookout_list,ds_list_find_index(player.lookout_list,id))
-				}	
+				}
+				
+				if ds_list_find_index(player.aggro_list,id) != -1 {
+					ds_list_delete(player.aggro_list,ds_list_find_index(player.aggro_list,id))	
+				}
 				
 				//Join my kids again
-				controller.line_list[| ds_list_size(controller.line_list)] = id
-				pos = controller.pos-(line_pos*gap)
-				x_goto = path_get_point_x(controller.path,pos)
-				y_goto = path_get_point_y(controller.path,pos)
-				exit;
+				//Check if my kids exist
+				if controller != -1 {
+					controller.line_list[| ds_list_size(controller.line_list)] = id
+					pos = controller.pos-(line_pos*gap)
+					x_goto = path_get_point_x(controller.path,pos)
+					y_goto = path_get_point_y(controller.path,pos)
+				} else {
+					#region Select which corner to run to 
+						var _whichCorner = irandom_range(0,3)
+						var _5050 = irandom_range(0,1)
+						var _goalX = 0
+						var _goalY = 0
+			
+						//Choose which corner this squad will spawn in 
+						switch(_whichCorner) 
+						{
+							case 0:											//	Bottom Right
+								if _5050 == 0 {
+									_goalX = room_width-64
+									_goalY = irandom_range(y,room_height-64)
+								} else {
+									_goalX = irandom_range(x,room_width-64)	
+									_goalY = room_height-64
+								}
+							break;
+							case 1:											//	Top Right
+								if _5050 == 0 {
+									_goalX = room_width-64
+									_goalY = irandom_range(y,0)
+								} else {
+									_goalX = irandom_range(x,room_width-64)
+									_goalY = 64
+								}	
+							break;
+							case 2:											//	Bottom Left
+								if _5050 == 0 {
+									_goalX = 64
+									_goalY = irandom_range(y,room_height-64)
+								} else {
+									_goalX = irandom_range(0,x)
+									_goalY = room_height-64
+								}
+							break;
+							case 3:											//	Top Left
+								if _5050 == 0 {
+									_goalX = 64
+									_goalY = irandom_range(0,y)
+								} else {
+									_goalX = irandom_range(0,x)
+									_goalY = room_height-64
+								}
+							break;
+						}
+						
+						scr_mp_grid_define_path(x,y,_goalX,_goalY,path,roomController.grid_sidewalk,true)
+						pos = 1
+						x_goto = path_get_point_x(path,pos)
+						y_goto = path_get_point_y(path,pos)
+						movespeed = 6
+					
+					
+					#endregion
+				}
+				
+				exit
+				
 			}
 			
 			if timer >= 60 {
