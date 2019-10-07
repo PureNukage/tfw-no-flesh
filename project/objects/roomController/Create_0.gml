@@ -1,5 +1,7 @@
 grid_collision_create()
 
+randomize()
+
 timer = 0 
 units = 0
 spawn_time = 60
