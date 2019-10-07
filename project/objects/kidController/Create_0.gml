@@ -1,5 +1,3 @@
-goalX = irandom_range(128,room_width-128)
-goalY = irandom_range(128,room_height-128)
 spawner = -1
 x_goto = 0
 y_goto = 0
@@ -8,6 +6,12 @@ path = path_add()
 movespeed = 3
 
 line_list = ds_list_create()
+
+route = ds_list_create()
+kid_route()
+goalX = route[| 0].x+96
+goalY = route[| 0].y+200
+ds_list_delete(route,0)
 
 states = states.normal
 
