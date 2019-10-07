@@ -120,8 +120,6 @@ switch(states)
 			//Exit Search Pattern
 			if search_timer >= 180 {
 				search_timer = 0
-				states = states.normal
-				movespeed = 3
 				//	Done looking for player, remove ourselves from the players lookout list
 				if ds_list_find_index(player.lookout_list,id) != -1 {
 					ds_list_delete(player.lookout_list,ds_list_find_index(player.lookout_list,id))
@@ -134,12 +132,17 @@ switch(states)
 				//Join my kids again
 				//Check if my kids exist
 				if controller != -1 {
+					states = states.normal
+					movespeed = 3
 					controller.line_list[| ds_list_size(controller.line_list)] = id
 					pos = controller.pos-(line_pos*gap)
 					x_goto = path_get_point_x(controller.path,pos)
 					y_goto = path_get_point_y(controller.path,pos)
+					exit;
 				} else {
 					#region Select which corner to run to 
+					
+						states = states.flee
 						var _5050 = irandom_range(0,1)
 						var _goalX = 0
 						var _goalY = 0
@@ -182,18 +185,15 @@ switch(states)
 				
 						}
 						
-						show_message("hi")
 						scr_mp_grid_define_path(x,y,_goalX,_goalY,path,roomController.grid_sidewalk,true)
 						pos = 1
 						x_goto = path_get_point_x(path,pos)
 						y_goto = path_get_point_y(path,pos)
 						movespeed = 6
-					
+						exit;
 					
 					#endregion
 				}
-				
-				exit
 				
 			}
 			
@@ -228,7 +228,16 @@ switch(states)
 	#region Flee State
 		case states.flee:
 			
-			
+			if point_distance(x,y,x_goto,y_goto) < 8 {
+				if ++pos == path_get_number(controller.path) {	
+					instance_destroy()
+				} else {
+					x_goto = path_get_point_x(controller.path,pos)
+					y_goto = path_get_point_y(controller.path,pos)
+				}
+			}
+		
+			mp_potential_step(x_goto,y_goto,movespeed,false)
 			
 		break;
 	#endregion
