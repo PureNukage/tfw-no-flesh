@@ -19,7 +19,6 @@ switch(states)
 									have_my_kids_arrived++
 								}
 							} else {
-								show_message("i: "+string(i))
 								with line_list[| i] {
 									if distance_to_point(other.line_list[| i-1].x,other.line_list[| i-1].y) < 75 {
 										have_my_kids_arrived++	
