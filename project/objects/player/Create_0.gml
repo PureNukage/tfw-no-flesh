@@ -19,6 +19,8 @@ lookout_list_size = ds_list_size(lookout_list)
 
 color = 0
 
+hp = 3
+
 hidingSpot = 0
 
 timer = 0
