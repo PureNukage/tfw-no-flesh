@@ -7,8 +7,10 @@ if states == states.spook {
 	draw_text(x,y-162,"boo!")	
 }
 
-draw_set_alpha(.3)
-draw_set_color(color)
-draw_ellipse(x-aura_size,y-(aura_size/2),x+aura_size,y+(aura_size/2),false)
-draw_set_color(-1)
-draw_set_alpha(1)
+if states != states.hide {
+	draw_set_alpha(.3)
+	draw_set_color(color)
+	draw_ellipse(x-aura_size,y-(aura_size/2),x+aura_size,y+(aura_size/2),false)
+	draw_set_color(-1)
+	draw_set_alpha(1)
+}

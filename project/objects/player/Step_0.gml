@@ -105,6 +105,9 @@ switch(states)
 	#endregion
 	#region Hide State
 		case states.hide:
+			hspd = 0
+			vspd = 0
+			speed = 0
 			image_alpha = 0
 			if playerInput.action {
 				hidingSpot.filled = 0	
