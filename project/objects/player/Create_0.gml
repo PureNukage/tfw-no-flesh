@@ -4,6 +4,7 @@ hspd = 0
 s_hspd = 0
 s_vspd = 0
 movespeed = 3
+movespeed_old = 0
 Direction = 0
 Speed = 0
 
@@ -20,6 +21,7 @@ lookout_list_size = ds_list_size(lookout_list)
 color = 0
 
 hp = 3
+damage_taken = 0
 
 hidingSpot = 0
 

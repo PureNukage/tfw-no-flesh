@@ -117,6 +117,40 @@ switch(states)
 				
 		break;
 	#endregion
+	#region Damaged State
+		case states.damage:
+		
+			if hspd == 0 and vspd == 0 {
+				damage_taken = 0
+				states = states.normal
+				movespeed = movespeed_old
+			}
+			hspd = lerp(hspd,0,.5)
+			vspd = lerp(vspd,0,.5)
+			
+			//Check for horizontal collisions
+			repeat(abs(hspd)) {
+			    if (!place_meeting(x+sign(hspd),y+sign(vspd),block))
+			        x += sign(hspd); 
+			    else {
+			        hspd = 0;
+			        break;
+			    }		
+			}
+
+			//Check for vertical collisions
+			repeat(abs(vspd)) {
+			    if (!place_meeting(x+sign(hspd),y+sign(vspd),block))
+			        y += sign(vspd); 
+			    else {
+			        vspd = 0;
+			        break;
+			    }
+			}
+			
+			
+		break;
+	#endregion
 }
 
 if ds_list_size(aggro_list) > 0 {
@@ -175,6 +209,24 @@ if ds_list_size(aggro_list) > 0 {
 	}
 	
 #endregion
+
+
+//Collision with Parent
+if instance_place(x,y,parent) and states != states.hide and damage_taken == 0 {
+	var _enemy = instance_place(x,y,parent)
+	damage_taken = 1
+	hp--
+	states = states.damage
+	movespeed_old = movespeed
+	movespeed = 64
+	Direction = point_direction(x,y,_enemy.x,_enemy.y)-180
+	vspd += lengthdir_y(movespeed,Direction)
+	hspd += lengthdir_x(movespeed,Direction)
+}
+
+if hp <= 0 {
+	game_end()	
+}
 
 aggro_list_size = ds_list_size(aggro_list)
 lookout_list_size = ds_list_size(lookout_list)
