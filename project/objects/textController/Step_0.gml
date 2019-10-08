@@ -2,7 +2,9 @@ timer++
 
 if keyboard_check_pressed(vk_anykey) {
 	if textCurrent < 12 timer = timerRequired
-	else room_goto_next()	
+	else {
+		instance_create_layer(room_width/2,room_height/2,"Instances",textLoading)	
+	}
 }
 
 if timer >= timerRequired {

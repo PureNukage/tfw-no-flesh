@@ -9,7 +9,7 @@ text[5] = "E enters a hiding spot"
 text[6] = "Your goal is to scare children and take their candy"
 text[7] = "You need all 6 body parts in order to win the game"
 text[8] = "Watch out for parents"
-text[9] = "They dont like it when their kids get spooked"
+text[9] = ""
 text[10] = "Press any key"
 
 var _x = room_width/2

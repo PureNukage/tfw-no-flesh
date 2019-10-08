@@ -31,12 +31,13 @@ parent_percentage[3] = 33
 parent_percentage[4] = 50
 parent_percentage[5] = 66
 
-fleshArt[0] = s_flesh_leg
-fleshArt[1] = s_flesh_leg
-fleshArt[2] = s_flesh_arm
-fleshArt[3] = s_flesh_arm
-fleshArt[4] = s_flesh_chest
-fleshArt[5] = s_flesh_head
+fleshArt[0] = s_body0
+fleshArt[1] = s_body1
+fleshArt[2] = s_body2
+fleshArt[3] = s_body3
+fleshArt[4] = s_body4
+fleshArt[5] = s_body5
+fleshArt[6] = s_body6
 
 fleshPercentage = (fleshCurrent/fleshRequired[flesh])*100 
 

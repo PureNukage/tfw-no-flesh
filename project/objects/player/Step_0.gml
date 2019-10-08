@@ -7,7 +7,7 @@ switch(states)
 	
 	if playerInput.spook {
 		states = states.spook
-		movespeed = 1
+		movespeed = 2
 		aura_size = 256
 	}
 	

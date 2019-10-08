@@ -10,7 +10,7 @@ switch(states)
 			ds_list_delete(controller.line_list,ds_list_find_index(controller.line_list,id))
 			states = states.run
 			ds_list_add(player.aggro_list,id)
-			movespeed = 4
+			movespeed = 3
 			goalX = player.x
 			goalY = player.y-12
 			pos = 1
@@ -54,7 +54,7 @@ switch(states)
 		case states.run:
 			boomer_brain_current++
 			
-			if movespeed < 6.5 movespeed = movespeed + .2
+			if movespeed < 6.5 movespeed = movespeed + .05
 			
 			line_of_sight = !collision_line(x,y,player.x,player.y,block,true,false)
 					
@@ -97,15 +97,13 @@ switch(states)
 				}
 			}
 		
-			mp_potential_step_object(x_goto,y_goto,movespeed,parent)		
+			mp_potential_step(x_goto,y_goto,movespeed,false)		
 		break;
 	#endregion
 	#region Look State
 		case states.look:
 			timer++
 			search_timer++
-			
-			movespeed = lerp(movespeed,5,.2)
 			
 			//See Player 
 			line_of_sight = !collision_line(x,y,player.x,player.y,block,true,false)
