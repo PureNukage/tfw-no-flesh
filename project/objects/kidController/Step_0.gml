@@ -127,15 +127,17 @@ switch(states)
 			}
 			if have_my_kids_arrived == amount_of_kids {
 				arrived = false
-				goalX = route[| 0].x+96
-				goalY = route[| 0].y+200
-				ds_list_add(route_visited,route[| 0])
-				ds_list_clear(route)
-				kid_route()
-				scr_mp_grid_define_path(x,y,goalX,goalY,path,roomController.grid_sidewalk,false)
-				pos = 1
-				x_goto = path_get_point_x(path,pos)
-				y_goto = path_get_point_y(path,pos)
+				if ds_list_size(route) > 0 {	//	If there is a house in route
+					goalX = route[| 0].x+96
+					goalY = route[| 0].y+200
+					ds_list_add(route_visited,route[| 0])
+					ds_list_clear(route)
+					kid_route()
+					scr_mp_grid_define_path(x,y,goalX,goalY,path,roomController.grid_sidewalk,false)
+					pos = 1
+					x_goto = path_get_point_x(path,pos)
+					y_goto = path_get_point_y(path,pos)
+				}
 			}
 		} else {
 			mp_potential_step(x_goto,y_goto,movespeed,false)
@@ -151,43 +153,47 @@ switch(states)
 		if timer >= 45 {
 			timer = 0
 			
-			var _5050 = irandom_range(0,1)
+			#region Choose which corner to run away to
 			
-			//Run away from the player
-			if (player.x < x) and (player.y < y) {			//	Bottom Right
-				if _5050 == 0 {
-					goalX = room_width-64
-					goalY = irandom_range(y,room_height-64)
-				} else {
-					goalX = irandom_range(x,room_width-64)	
-					goalY = room_height-64
-				}
-			} else if (player.x < x) and (player.y > y) {	//	Top Right
-				if _5050 == 0 {
-					goalX = room_width-64
-					goalY = irandom_range(y,0)
-				} else {
-					goalX = irandom_range(x,room_width-64)
-					goalY = 64
-				}					
-			} else if (player.x > x) and (player.y < y) {	//	Bottom Left
-				if _5050 == 0 {
-					goalX = 64
-					goalY = irandom_range(y,room_height-64)
-				} else {
-					goalX = irandom_range(0,x)
-					goalY = room_height-64
-				}
-			} else if (player.x > x) and (player.y > y) {	//	Top Left
-				if _5050 == 0 {
-					goalX = 64
-					goalY = irandom_range(0,y)
-				} else {
-					goalX = irandom_range(0,x)
-					goalY = room_height-64
+				var _5050 = irandom_range(0,1)
+			
+				//Run away from the player
+				if (player.x < x) and (player.y < y) {			//	Bottom Right
+					if _5050 == 0 {
+						goalX = room_width-64
+						goalY = irandom_range(y,room_height-64)
+					} else {
+						goalX = irandom_range(x,room_width-64)	
+						goalY = room_height-64
+					}
+				} else if (player.x < x) and (player.y > y) {	//	Top Right
+					if _5050 == 0 {
+						goalX = room_width-64
+						goalY = irandom_range(y,0)
+					} else {
+						goalX = irandom_range(x,room_width-64)
+						goalY = 64
+					}					
+				} else if (player.x > x) and (player.y < y) {	//	Bottom Left
+					if _5050 == 0 {
+						goalX = 64
+						goalY = irandom_range(y,room_height-64)
+					} else {
+						goalX = irandom_range(0,x)
+						goalY = room_height-64
+					}
+				} else if (player.x > x) and (player.y > y) {	//	Top Left
+					if _5050 == 0 {
+						goalX = 64
+						goalY = irandom_range(0,y)
+					} else {
+						goalX = irandom_range(0,x)
+						goalY = room_height-64
+					}
+				
 				}
 				
-			}
+			#endregion
 			
 			var loop_size
 			if parent_do_i_have_one == true {

@@ -10,9 +10,16 @@ if flesh > 5 {
 fleshPercentage = (fleshCurrent/fleshRequired[flesh])*100 
 
 
-if fleshPercentage > 100 {
+if fleshPercentage >= 100 {
 	flesh++
 	fleshCurrent = 0 
+	
+	//game win
+	if flesh > 5 {
+		show_message("you won!")
+		game_end()
+		exit
+	}
 	
 	if player.hp < 3 {
 		player.hp++	

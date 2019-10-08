@@ -8,12 +8,12 @@ spawn_time = 60
 flesh = 0
 fleshCurrent = 0
 
-fleshRequired[0] = 32
-fleshRequired[1] = 48
-fleshRequired[2] = 64
-fleshRequired[3] = 72
-fleshRequired[4] = 86
-fleshRequired[5] = 100
+fleshRequired[0] = 16
+fleshRequired[1] = 18
+fleshRequired[2] = 20
+fleshRequired[3] = 24
+fleshRequired[4] = 26
+fleshRequired[5] = 30
 
 max_units[0] = 4
 max_units[1] = 6

@@ -6,7 +6,7 @@ switch(states)
 		line_of_sight = !collision_line(x,y,player.x,player.y,block,true,false)
 		aura_collide = collision_ellipse(player.x-player.aura_size,player.y-(player.aura_size/2),player.x+player.aura_size,player.y+(player.aura_size/2),id,true,false) 
 		
-		if aura_collide and line_of_sight and player.states == states.spook {
+		if aura_collide and line_of_sight and player.states == states.spook and controller.states != states.spook {
 			controller.states = states.spook
 			var loop_size
 			if controller.parent_do_i_have_one == true {

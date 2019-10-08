@@ -14,7 +14,7 @@ switch(states)
 			goalX = player.x
 			goalY = player.y-12
 			pos = 1
-			scr_mp_grid_define_path(x,y,goalX,goalY,path,roomController.grid_sidewalk,true)
+			scr_mp_grid_define_path(x,y,goalX,goalY,path,roomController.grid_sidewalk_and_road_and_grass,true)
 			x_goto = path_get_point_x(path,pos)
 			y_goto = path_get_point_y(path,pos)
 			exit
@@ -53,6 +53,8 @@ switch(states)
 	#region Run State
 		case states.run:
 			boomer_brain_current++
+			
+			if movespeed < 6.5 movespeed = movespeed + .2
 			
 			line_of_sight = !collision_line(x,y,player.x,player.y,block,true,false)
 					
@@ -95,13 +97,15 @@ switch(states)
 				}
 			}
 		
-			mp_potential_step(x_goto,y_goto,movespeed,false)		
+			mp_potential_step_object(x_goto,y_goto,movespeed,parent)		
 		break;
 	#endregion
 	#region Look State
 		case states.look:
 			timer++
 			search_timer++
+			
+			movespeed = lerp(movespeed,5,.2)
 			
 			//See Player 
 			line_of_sight = !collision_line(x,y,player.x,player.y,block,true,false)

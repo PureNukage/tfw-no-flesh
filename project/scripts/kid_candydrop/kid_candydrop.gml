@@ -2,14 +2,12 @@ var number = irandom_range(0,99)
 var amount_of_candy = 0
 
 if number < 44 {
-	amount_of_candy = 0		
+	amount_of_candy = 1		
 } else if (number > 43 and number < 74) {
-	amount_of_candy = 1	
-} else if number > 73 { 
 	amount_of_candy = 2	
+} else if number > 73 { 
+	amount_of_candy = 3	
 }
-
-amount_of_candy = 4
 
 for(var i=0;i<amount_of_candy;i++) {
 	var _candy = instance_create_layer(x,y,"Instances",candy)
