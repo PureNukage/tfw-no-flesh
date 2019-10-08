@@ -30,7 +30,7 @@ if fleshPercentage >= 100 {
 
 
 
-parentsTotal = (parent_percentage[flesh]/100)*max_units[flesh]
+//parentsTotal = (parent_percentage[flesh]/100)*max_units[flesh]
 
 if timer > spawn_time and units < max_units[flesh] {
 	
@@ -101,7 +101,8 @@ if timer > spawn_time and units < max_units[flesh] {
 	kid2.controller = kid_controller
 	kid2.line_pos = 2
 	kid_controller.line_list[| 2] = kid2
-	if parents < parentsTotal {
+	var _parent_dice_roll = irandom(100)
+	if _parent_dice_roll < parent_percentage[flesh] {
 		kid_controller.parent_do_i_have_one = true
 		var _parent = instance_create_layer(spawnX,spawnY,"Instances",parent)
 		kid_controller.line_list[| ds_list_size(kid_controller.line_list)] = _parent
